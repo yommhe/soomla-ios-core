@@ -6,7 +6,7 @@
 #
 # Pods/
 
-build
+out
 
 SoomlaiOSCore.xcodeproj/xcuserdata
 SoomlaiOSCore.xcodeproj/project.xcworkspace/xcuserdata

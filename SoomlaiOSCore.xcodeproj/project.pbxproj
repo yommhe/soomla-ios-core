@@ -11,11 +11,11 @@
 		C023342A194AEE40005DE53A /* SoomlaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233426194AEE40005DE53A /* SoomlaConfig.m */; };
 		C023342B194AEE40005DE53A /* SoomlaUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233427194AEE40005DE53A /* SoomlaUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023342C194AEE40005DE53A /* SoomlaUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233428194AEE40005DE53A /* SoomlaUtils.m */; };
-		C0233446194AEE5F005DE53A /* KeyValDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233430194AEE5F005DE53A /* KeyValDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0233446194AEE5F005DE53A /* KeyValDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233430194AEE5F005DE53A /* KeyValDatabase.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C0233447194AEE5F005DE53A /* KeyValDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233431194AEE5F005DE53A /* KeyValDatabase.m */; };
 		C0233448194AEE5F005DE53A /* KeyValueStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233432194AEE5F005DE53A /* KeyValueStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0233449194AEE5F005DE53A /* KeyValueStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233433194AEE5F005DE53A /* KeyValueStorage.m */; };
-		C0233450194AEE5F005DE53A /* SoomlaEncryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C023343A194AEE5F005DE53A /* SoomlaEncryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0233450194AEE5F005DE53A /* SoomlaEncryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C023343A194AEE5F005DE53A /* SoomlaEncryptor.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C0233451194AEE5F005DE53A /* SoomlaEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C023343B194AEE5F005DE53A /* SoomlaEncryptor.m */; };
 		C023345F194AEEB8005DE53A /* FBEncryptorAES.h in Headers */ = {isa = PBXBuildFile; fileRef = C023345B194AEEB8005DE53A /* FBEncryptorAES.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C0233460194AEEB8005DE53A /* FBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = C023345C194AEEB8005DE53A /* FBEncryptorAES.m */; };
@@ -24,7 +24,7 @@
 		C0233464194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = C0233463194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch */; settings = {ATTRIBUTES = (Private, ); }; };
 		C023346C194B055E005DE53A /* RewardStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C023346A194B055E005DE53A /* RewardStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023346D194B055E005DE53A /* RewardStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C023346B194B055E005DE53A /* RewardStorage.m */; };
-		C0233470194B058C005DE53A /* JSONConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = C023346E194B058C005DE53A /* JSONConsts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0233470194B058C005DE53A /* JSONConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = C023346E194B058C005DE53A /* JSONConsts.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C0233471194B058C005DE53A /* JSONConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = C023346F194B058C005DE53A /* JSONConsts.m */; };
 		C023347D194B05C0005DE53A /* BadgeReward.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233473194B05C0005DE53A /* BadgeReward.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023347E194B05C0005DE53A /* BadgeReward.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233474194B05C0005DE53A /* BadgeReward.m */; };
@@ -385,6 +385,7 @@
 				PRODUCT_NAME = SoomlaiOSCore;
 				PUBLIC_HEADERS_FOLDER_PATH = headers/public;
 				SKIP_INSTALL = YES;
+				SYMROOT = out;
 			};
 			name = Debug;
 		};
@@ -403,6 +404,7 @@
 				PRODUCT_NAME = SoomlaiOSCore;
 				PUBLIC_HEADERS_FOLDER_PATH = headers/public;
 				SKIP_INSTALL = YES;
+				SYMROOT = out;
 			};
 			name = Release;
 		};
