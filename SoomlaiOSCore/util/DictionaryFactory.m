@@ -14,7 +14,7 @@
 
 static NSString* TAG = @"SOOMLA DictionaryFactory";
 
-- (id)createObjectWithDictionary:(NSDictionary *)dict andTypeMap:(NSDictionary *)typeMap {
+- (id)createObjectWithDictionary:(NSDictionary *)dict {
     
     if (!dict) {
         // warn
@@ -22,13 +22,14 @@ static NSString* TAG = @"SOOMLA DictionaryFactory";
     }
     
     id obj = nil;
-    NSString* type = dict[BP_TYPE];
-    Class clazz = typeMap[type];
+    NSString* className = dict[BP_CLASSNAME];
+    
+    Class clazz = NSClassFromString(className);
     
     if (clazz) {
         obj = [[clazz alloc] initWithDictionary:dict];
     } else {
-        LogDebug(TAG, ([NSString stringWithFormat:@"Unknown type: %@", type]));
+        LogDebug(TAG, ([NSString stringWithFormat:@"Unknown class name: %@", className]));
     }
     
     return obj;

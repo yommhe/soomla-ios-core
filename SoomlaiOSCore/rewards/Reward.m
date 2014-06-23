@@ -18,9 +18,6 @@
 #import "JSONConsts.h"
 #import "RewardStorage.h"
 #import "SoomlaUtils.h"
-#import "BadgeReward.h"
-#import "RandomReward.h"
-#import "SequenceReward.h"
 #import "DictionaryFactory.h"
 #import "SoomlaEventHandling.h"
 
@@ -31,7 +28,6 @@
 static NSString* TAG = @"SOOMLA Reward";
 static NSString* TYPE_NAME = @"reward";
 static DictionaryFactory* dictionaryFactory;
-static NSDictionary* typeMap;
 
 
 - (id)initWithRewardId:(NSString *)oRewardId andName:(NSString *)oName {
@@ -122,22 +118,12 @@ static NSDictionary* typeMap;
 // Static methods
 
 + (Reward *)fromDictionary:(NSDictionary *)dict {
-    return (Reward *)[dictionaryFactory createObjectWithDictionary:dict andTypeMap:typeMap];
+    return (Reward *)[dictionaryFactory createObjectWithDictionary:dict];
 }
-
-+ (NSString *)getTypeName {
-    return TYPE_NAME;
-}
-
 
 + (void)initialize {
     if (self == [Reward self]) {
         dictionaryFactory = [[DictionaryFactory alloc] init];
-        typeMap = @{
-                    [BadgeReward getTypeName]       : [BadgeReward class],
-                    [RandomReward getTypeName]      : [RandomReward class],
-                    [SequenceReward getTypeName]    : [SequenceReward class]
-                    };
     }
 }
 

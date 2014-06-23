@@ -18,7 +18,7 @@
 
 extern NSString *const BP_ASSOCITEMID;
 extern NSString *const BP_NAME;
-extern NSString *const BP_TYPE;
+extern NSString *const BP_CLASSNAME;
 
 /** Reward **/
 

@@ -23,7 +23,6 @@
 
 @synthesize rewards;
 
-static NSString* TYPE_NAME = @"random";
 static NSString* TAG = @"SOOMLA RandomReward";
 
 
@@ -79,7 +78,7 @@ static NSString* TAG = @"SOOMLA RandomReward";
     
     NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
     [toReturn setObject:rewardsArr forKey:BP_REWARDS];
-    [toReturn setObject:TYPE_NAME forKey:BP_TYPE];
+    [toReturn setObject:NSStringFromClass([self class]) forKey:BP_CLASSNAME];
     
     return toReturn;
 }

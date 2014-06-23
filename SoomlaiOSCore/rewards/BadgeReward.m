@@ -21,8 +21,6 @@
 
 @synthesize iconUrl;
 
-static NSString* TYPE_NAME = @"badge";
-
 - (id)initWithRewardId:(NSString *)oRewardId andName:(NSString *)oName andIconUrl:(NSString *)oIconUrl {
     if (self = [super initWithRewardId:oRewardId andName:oName]) {
         self.iconUrl = oIconUrl;
@@ -44,7 +42,7 @@ static NSString* TYPE_NAME = @"badge";
     
     NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
     [toReturn setObject:self.iconUrl forKey:BP_REWARD_ICONURL];
-    [toReturn setObject:TYPE_NAME forKey:BP_TYPE];
+    [toReturn setObject:NSStringFromClass([self class]) forKey:BP_CLASSNAME];
     
     return toReturn;
 }

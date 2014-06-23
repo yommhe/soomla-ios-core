@@ -19,15 +19,15 @@
 
 /** Global **/
 
-NSString *const BP_ASSOCITEMID       = @"associatedItemId";
-NSString *const BP_NAME              = @"name";
-NSString *const BP_TYPE              = @"jsonType";
+NSString *const BP_ASSOCITEMID      = @"associatedItemId";
+NSString *const BP_NAME             = @"name";
+NSString *const BP_CLASSNAME        = @"className";
 
 
 /** Reward **/
 
-NSString *const BP_REWARDS           = @"rewards";
-NSString *const BP_REWARD_REPEAT     = @"repeatable";
-NSString *const BP_REWARD_REWARDID   = @"rewardId";
-NSString *const BP_REWARD_AMOUNT     = @"amount";
-NSString *const BP_REWARD_ICONURL    = @"iconUrl";
+NSString *const BP_REWARDS          = @"rewards";
+NSString *const BP_REWARD_REPEAT    = @"repeatable";
+NSString *const BP_REWARD_REWARDID  = @"rewardId";
+NSString *const BP_REWARD_AMOUNT    = @"amount";
+NSString *const BP_REWARD_ICONURL   = @"iconUrl";

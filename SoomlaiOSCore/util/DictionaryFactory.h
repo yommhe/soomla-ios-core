@@ -8,6 +8,6 @@
 
 @interface DictionaryFactory : NSObject
 
-- (id)createObjectWithDictionary:(NSDictionary *)dict andTypeMap:(NSDictionary *)typeMap;
+- (id)createObjectWithDictionary:(NSDictionary *)dict;
 
 @end
