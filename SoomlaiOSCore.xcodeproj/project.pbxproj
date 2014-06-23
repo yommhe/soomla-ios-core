@@ -11,7 +11,7 @@
 		C023342A194AEE40005DE53A /* SoomlaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233426194AEE40005DE53A /* SoomlaConfig.m */; };
 		C023342B194AEE40005DE53A /* SoomlaUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233427194AEE40005DE53A /* SoomlaUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023342C194AEE40005DE53A /* SoomlaUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233428194AEE40005DE53A /* SoomlaUtils.m */; };
-		C0233446194AEE5F005DE53A /* KeyValDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233430194AEE5F005DE53A /* KeyValDatabase.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C0233446194AEE5F005DE53A /* KeyValDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233430194AEE5F005DE53A /* KeyValDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0233447194AEE5F005DE53A /* KeyValDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233431194AEE5F005DE53A /* KeyValDatabase.m */; };
 		C0233448194AEE5F005DE53A /* KeyValueStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233432194AEE5F005DE53A /* KeyValueStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0233449194AEE5F005DE53A /* KeyValueStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233433194AEE5F005DE53A /* KeyValueStorage.m */; };
