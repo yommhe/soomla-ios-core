@@ -52,9 +52,9 @@ static DictionaryFactory* dictionaryFactory;
     }
     
     if (self) {
-        self.rewardId = dict[BP_REWARD_REWARDID];
-        self.name = dict[BP_NAME];
-        self.repeatable = [dict[BP_REWARD_REPEAT] boolValue];
+        self.rewardId = dict[SOOM_REWARD_REWARDID];
+        self.name = dict[SOOM_NAME];
+        self.repeatable = [dict[SOOM_REWARD_REPEAT] boolValue];
     }
     
     return self;
@@ -62,9 +62,9 @@ static DictionaryFactory* dictionaryFactory;
 
 - (NSDictionary *)toDictionary {
     return [[NSDictionary alloc] initWithObjectsAndKeys:
-            self.rewardId, BP_REWARD_REWARDID,
-            self.name, BP_NAME,
-            self.repeatable, BP_REWARD_REPEAT,
+            self.rewardId, SOOM_REWARD_REWARDID,
+            self.name, SOOM_NAME,
+            self.repeatable, SOOM_REWARD_REPEAT,
             nil];
 }
 

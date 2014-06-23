@@ -16,14 +16,14 @@
 
 /** Global **/
 
-extern NSString *const BP_ASSOCITEMID;
-extern NSString *const BP_NAME;
-extern NSString *const BP_CLASSNAME;
+extern NSString *const SOOM_ASSOCITEMID;
+extern NSString *const SOOM_NAME;
+extern NSString *const SOOM_CLASSNAME;
 
 /** Reward **/
 
-extern NSString *const BP_REWARDS;
-extern NSString *const BP_REWARD_REPEAT;
-extern NSString *const BP_REWARD_REWARDID;
-extern NSString *const BP_REWARD_AMOUNT;
-extern NSString *const BP_REWARD_ICONURL;
+extern NSString *const SOOM_REWARDS;
+extern NSString *const SOOM_REWARD_REPEAT;
+extern NSString *const SOOM_REWARD_REWARDID;
+extern NSString *const SOOM_REWARD_AMOUNT;
+extern NSString *const SOOM_REWARD_ICONURL;

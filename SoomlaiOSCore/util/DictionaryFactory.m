@@ -22,7 +22,7 @@ static NSString* TAG = @"SOOMLA DictionaryFactory";
     }
     
     id obj = nil;
-    NSString* className = dict[BP_CLASSNAME];
+    NSString* className = dict[SOOM_CLASSNAME];
     
     Class clazz = NSClassFromString(className);
     

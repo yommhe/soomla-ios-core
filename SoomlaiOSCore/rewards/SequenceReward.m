@@ -44,7 +44,7 @@ static NSString* TAG = @"SOOMLA SequenceReward";
     if (self = [super initWithDictionary:dict]) {
         
         NSMutableArray* tmpRewards = [NSMutableArray array];
-        NSArray* rewardsArr = dict[BP_REWARDS];
+        NSArray* rewardsArr = dict[SOOM_REWARDS];
         
         if (!rewardsArr) {
             LogDebug(TAG, @"reward has no meaning without children");
@@ -76,8 +76,8 @@ static NSString* TAG = @"SOOMLA SequenceReward";
     }
     
     NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
-    [toReturn setObject:rewardsArr forKey:BP_REWARDS];
-    [toReturn setObject:NSStringFromClass([self class]) forKey:BP_CLASSNAME];
+    [toReturn setObject:rewardsArr forKey:SOOM_REWARDS];
+    [toReturn setObject:NSStringFromClass([self class]) forKey:SOOM_CLASSNAME];
     
     return toReturn;
 }

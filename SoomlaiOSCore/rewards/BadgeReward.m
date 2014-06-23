@@ -31,7 +31,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)dict {
     if (self = [super initWithDictionary:dict]) {
-        self.iconUrl = dict[BP_REWARD_ICONURL];
+        self.iconUrl = dict[SOOM_REWARD_ICONURL];
     }
     
     return self;
@@ -41,8 +41,8 @@
     NSDictionary* parentDict = [super toDictionary];
     
     NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
-    [toReturn setObject:self.iconUrl forKey:BP_REWARD_ICONURL];
-    [toReturn setObject:NSStringFromClass([self class]) forKey:BP_CLASSNAME];
+    [toReturn setObject:self.iconUrl forKey:SOOM_REWARD_ICONURL];
+    [toReturn setObject:NSStringFromClass([self class]) forKey:SOOM_CLASSNAME];
     
     return toReturn;
 }

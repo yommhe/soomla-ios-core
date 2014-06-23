@@ -19,15 +19,15 @@
 
 /** Global **/
 
-NSString *const BP_ASSOCITEMID      = @"associatedItemId";
-NSString *const BP_NAME             = @"name";
-NSString *const BP_CLASSNAME        = @"className";
+NSString *const SOOM_ASSOCITEMID      = @"associatedItemId";
+NSString *const SOOM_NAME             = @"name";
+NSString *const SOOM_CLASSNAME        = @"className";
 
 
 /** Reward **/
 
-NSString *const BP_REWARDS          = @"rewards";
-NSString *const BP_REWARD_REPEAT    = @"repeatable";
-NSString *const BP_REWARD_REWARDID  = @"rewardId";
-NSString *const BP_REWARD_AMOUNT    = @"amount";
-NSString *const BP_REWARD_ICONURL   = @"iconUrl";
+NSString *const SOOM_REWARDS          = @"rewards";
+NSString *const SOOM_REWARD_REPEAT    = @"repeatable";
+NSString *const SOOM_REWARD_REWARDID  = @"rewardId";
+NSString *const SOOM_REWARD_AMOUNT    = @"amount";
+NSString *const SOOM_REWARD_ICONURL   = @"iconUrl";

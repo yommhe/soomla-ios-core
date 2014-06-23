@@ -9,11 +9,11 @@
 @class Reward;
 
 // Events
-#define EVENT_BP_REWARD_GIVEN                   @"bp_reward_given"
-#define EVENT_BP_REWARD_TAKEN                   @"bp_reward_taken"
+#define EVENT_REWARD_GIVEN                  @"bp_reward_given"
+#define EVENT_REWARD_TAKEN                  @"bp_reward_taken"
 
-
-#define DICT_ELEMENT_REWARD                     @"reward"
+// Dictionary Elements
+#define DICT_ELEMENT_REWARD                 @"reward"
 
 
 @interface SoomlaEventHandling : NSObject

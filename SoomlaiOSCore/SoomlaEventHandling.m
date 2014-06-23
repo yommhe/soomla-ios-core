@@ -14,12 +14,12 @@
 
 + (void)postRewardGiven:(Reward *)reward {
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reward forKey:DICT_ELEMENT_REWARD];
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_BP_REWARD_GIVEN object:self userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_GIVEN object:self userInfo:userInfo];
 }
 
 + (void)postRewardTaken:(Reward *)reward {
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reward forKey:DICT_ELEMENT_REWARD];
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_BP_REWARD_TAKEN object:self userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_TAKEN object:self userInfo:userInfo];
 }
 
 @end
