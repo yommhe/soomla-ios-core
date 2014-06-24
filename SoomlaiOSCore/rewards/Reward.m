@@ -64,7 +64,7 @@ static DictionaryFactory* dictionaryFactory;
     return [[NSDictionary alloc] initWithObjectsAndKeys:
             self.rewardId, SOOM_REWARD_REWARDID,
             self.name, SOOM_NAME,
-            self.repeatable, SOOM_REWARD_REPEAT,
+            [NSNumber numberWithBool:self.repeatable], SOOM_REWARD_REPEAT,
             nil];
 }
 
