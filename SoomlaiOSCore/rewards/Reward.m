@@ -25,7 +25,6 @@
 @synthesize rewardId, name, repeatable;
 
 static NSString* TAG = @"SOOMLA Reward";
-static NSString* TYPE_NAME = @"reward";
 static DictionaryFactory* dictionaryFactory;
 
 
