@@ -38,6 +38,7 @@
         }
     } else {
         [KeyValueStorage deleteValueForKey:key];
+        [SoomlaEventHandling postRewardTaken:reward];
     }
 }
 

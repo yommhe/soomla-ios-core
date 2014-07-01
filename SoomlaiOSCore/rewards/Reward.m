@@ -19,7 +19,6 @@
 #import "RewardStorage.h"
 #import "SoomlaUtils.h"
 #import "DictionaryFactory.h"
-#import "SoomlaEventHandling.h"
 
 @implementation Reward
 
@@ -90,7 +89,6 @@ static DictionaryFactory* dictionaryFactory;
     
     if ([self takeInner]) {
         [RewardStorage setStatus:NO forReward:self];
-        [SoomlaEventHandling postRewardTaken:self];
         return YES;
     }
     return NO;
