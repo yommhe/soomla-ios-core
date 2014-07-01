@@ -16,6 +16,7 @@
 
 #import "RewardStorage.h"
 #import "Reward.h"
+#import "SequenceReward.h"
 #import "SoomlaEventHandling.h"
 #import "KeyValueStorage.h"
 #import "SoomlaConfig.h"
@@ -48,8 +49,8 @@
     return (val && [val length] > 0);
 }
 
-+ (int)getLastSeqIdxGivenForReward:(Reward *)reward {
-    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:reward.rewardId];
++ (int)getLastSeqIdxGivenForReward:(SequenceReward *)sequenceReward {
+    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceReward.rewardId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     
     if (!val || [val length] == 0){
@@ -59,8 +60,8 @@
     return [val intValue];
 }
 
-+ (void)setLastSeqIdxGiven:(int)idx ForReward:(Reward *)reward {
-    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:reward.rewardId];
++ (void)setLastSeqIdxGiven:(int)idx ForReward:(SequenceReward *)sequenceReward {
+    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceReward.rewardId];
     NSString* val = [[NSNumber numberWithInt:idx] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
