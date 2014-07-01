@@ -59,11 +59,12 @@ static DictionaryFactory* dictionaryFactory;
 }
 
 - (NSDictionary *)toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys:
-            self.rewardId, SOOM_REWARD_REWARDID,
-            self.name, SOOM_NAME,
-            [NSNumber numberWithBool:self.repeatable], SOOM_REWARD_REPEAT,
-            nil];
+    return @{
+             SOOM_CLASSNAME: NSStringFromClass([self class]),
+             SOOM_REWARD_REWARDID: self.rewardId,
+             SOOM_NAME: self.name,
+             SOOM_REWARD_REPEAT: @(self.repeatable)
+             };
 }
 
 - (BOOL)give {

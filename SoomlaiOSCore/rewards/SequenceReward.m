@@ -77,7 +77,6 @@ static NSString* TAG = @"SOOMLA SequenceReward";
     
     NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
     [toReturn setObject:rewardsArr forKey:SOOM_REWARDS];
-    [toReturn setObject:NSStringFromClass([self class]) forKey:SOOM_CLASSNAME];
     
     return toReturn;
 }
