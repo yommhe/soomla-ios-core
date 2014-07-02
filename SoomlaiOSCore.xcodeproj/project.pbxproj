@@ -85,7 +85,6 @@
 		C023347A194B05C0005DE53A /* SequenceReward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequenceReward.m; sourceTree = "<group>"; };
 		C0233487194B06C1005DE53A /* SoomlaEventHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaEventHandling.h; sourceTree = "<group>"; };
 		C0233488194B06C1005DE53A /* SoomlaEventHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaEventHandling.m; sourceTree = "<group>"; };
-		C02334C1194B7431005DE53A /* libSoomlaiOSStore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSoomlaiOSStore.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SoomlaiOSStore-clnhbmzrwjohwlalusgueasqjdke/Build/Products/Release-iphoneos/libSoomlaiOSStore.a"; sourceTree = "<group>"; };
 		C0B3C5EF168C6D0C00161FAA /* libSoomlaiOSCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoomlaiOSCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B3C5F2168C6D0C00161FAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EF4CDD0D194F1D80008B1CF2 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -171,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				EF4CDD0D194F1D80008B1CF2 /* libsqlite3.0.dylib */,
-				C02334C1194B7431005DE53A /* libSoomlaiOSStore.a */,
 				C0B3C5F2168C6D0C00161FAA /* Foundation.framework */,
 			);
 			name = Frameworks;
