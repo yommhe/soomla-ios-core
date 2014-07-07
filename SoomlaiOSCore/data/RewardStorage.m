@@ -20,6 +20,7 @@
 #import "SoomlaEventHandling.h"
 #import "KeyValueStorage.h"
 #import "SoomlaConfig.h"
+#import "SoomlaUtils.h"
 
 @implementation RewardStorage
 
@@ -30,6 +31,18 @@
 
 + (void)setStatus:(BOOL)status forReward:(Reward *)reward andNotify:(BOOL)notify {
     NSString* key = [self keyRewardGivenWithRewardId:reward.rewardId];
+    
+    // check that non-repeatable rewards are not given twice (by event)
+    if (!reward.repeatable) {
+        BOOL given = [[KeyValueStorage getValueForKey:key] isEqualToString:@"yes"];
+        if (given && status) {
+            NSString* msg = [NSString stringWithFormat:
+                             @"non-repeatable reward <%@> already given - suppress notify to FALSE",
+                             reward.rewardId];
+            LogDebug(@"SOOMLA RewardStorage", msg);
+            notify = FALSE;
+        }
+    }
     
     if (status) {
         [KeyValueStorage setValue:@"yes" forKey:key];
