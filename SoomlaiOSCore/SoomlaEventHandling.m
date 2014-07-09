@@ -12,6 +12,11 @@
 
 @implementation SoomlaEventHandling
 
++ (void)observeAllEventsWithObserver:(id)observer withSelector:(SEL)selector {
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_GIVEN object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_TAKEN object:nil];
+}
+
 + (void)postRewardGiven:(Reward *)reward {
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reward forKey:DICT_ELEMENT_REWARD];
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_GIVEN object:self userInfo:userInfo];
