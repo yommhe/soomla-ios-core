@@ -37,6 +37,8 @@
 		C0233489194B06C1005DE53A /* SoomlaEventHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233487194B06C1005DE53A /* SoomlaEventHandling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023348A194B06C1005DE53A /* SoomlaEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233488194B06C1005DE53A /* SoomlaEventHandling.m */; };
 		C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C5F2168C6D0C00161FAA /* Foundation.framework */; };
+		C0FD6017197C18E6003001F5 /* SoomlaEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = C0FD6015197C18E6003001F5 /* SoomlaEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0FD6018197C18E6003001F5 /* SoomlaEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FD6016197C18E6003001F5 /* SoomlaEntity.m */; };
 		EF9E24C81950528E007A3082 /* Soomla.h in Headers */ = {isa = PBXBuildFile; fileRef = EF9E24C61950528E007A3082 /* Soomla.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EF9E24C91950528E007A3082 /* Soomla.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E24C71950528E007A3082 /* Soomla.m */; };
 		EFC127D3194E046100CDA66B /* DictionaryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = EFC127D1194E046100CDA66B /* DictionaryFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -87,6 +89,8 @@
 		C0233488194B06C1005DE53A /* SoomlaEventHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaEventHandling.m; sourceTree = "<group>"; };
 		C0B3C5EF168C6D0C00161FAA /* libSoomlaiOSCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoomlaiOSCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B3C5F2168C6D0C00161FAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C0FD6015197C18E6003001F5 /* SoomlaEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaEntity.h; sourceTree = "<group>"; };
+		C0FD6016197C18E6003001F5 /* SoomlaEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaEntity.m; sourceTree = "<group>"; };
 		EF4CDD0D194F1D80008B1CF2 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		EF9E24C61950528E007A3082 /* Soomla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Soomla.h; sourceTree = "<group>"; };
 		EF9E24C71950528E007A3082 /* Soomla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soomla.m; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 				C023342D194AEE5F005DE53A /* data */,
 				C0233425194AEE40005DE53A /* SoomlaConfig.h */,
 				C0233426194AEE40005DE53A /* SoomlaConfig.m */,
+				C0FD6015197C18E6003001F5 /* SoomlaEntity.h */,
+				C0FD6016197C18E6003001F5 /* SoomlaEntity.m */,
 				C0233427194AEE40005DE53A /* SoomlaUtils.h */,
 				C0233428194AEE40005DE53A /* SoomlaUtils.m */,
 				EF9E24C61950528E007A3082 /* Soomla.h */,
@@ -227,6 +233,7 @@
 				C023345F194AEEB8005DE53A /* FBEncryptorAES.h in Headers */,
 				C0233450194AEE5F005DE53A /* SoomlaEncryptor.h in Headers */,
 				C0233464194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch in Headers */,
+				C0FD6017197C18E6003001F5 /* SoomlaEntity.h in Headers */,
 				C023346C194B055E005DE53A /* RewardStorage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0FD6018197C18E6003001F5 /* SoomlaEntity.m in Sources */,
 				C023347E194B05C0005DE53A /* BadgeReward.m in Sources */,
 				C0233447194AEE5F005DE53A /* KeyValDatabase.m in Sources */,
 				C0233451194AEE5F005DE53A /* SoomlaEncryptor.m in Sources */,

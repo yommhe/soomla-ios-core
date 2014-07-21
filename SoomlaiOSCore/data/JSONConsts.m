@@ -23,6 +23,9 @@ NSString *const SOOM_ASSOCITEMID      = @"associatedItemId";
 NSString *const SOOM_NAME             = @"name";
 NSString *const SOOM_CLASSNAME        = @"className";
 
+NSString *const SOOM_ENTITY_NAME       = @"name";
+NSString *const SOOM_ENTITY_DESCRIPTION = @"description";
+NSString *const SOOM_ENTITY_ID         = @"itemId";
 
 /** Reward **/
 
