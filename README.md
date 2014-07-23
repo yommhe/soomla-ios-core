@@ -13,7 +13,7 @@ This sets up the local on-device database used by SOOMLA.  The secret is used fo
 This core library holds common features and utilities used by all other modules of the SOOMLA framework.
 It includes:
 * An encrypted key-value storage (SQLite based) for persisting data locally on devices.
-* Utilities for `NSString` and `NSDictionary` manipulation.
+* Utilities for JSON and __Dictionary manipulation.
 * Utilities for Logging and encryption.
 * Reward domain objects and events - used to grant your users rewards.
 
