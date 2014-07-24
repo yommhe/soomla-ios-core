@@ -15,6 +15,7 @@ It includes:
 * An encrypted key-value storage (SQLite based) for persisting data locally on devices.
 * Utilities for `NSString` and `NSDictionary` manipulation.
 * Utilities for Logging and encryption.
+* `SoomlaEntity` - the base class from which all SOOMLA domain objects derive.
 * Reward domain objects and events - used to grant your users rewards.
 
 SOOMLA modules internally use these features, though we encourage you to use them for your own needs as well.  For example, use our key-value storage for custom game data for usage across game sessions.
