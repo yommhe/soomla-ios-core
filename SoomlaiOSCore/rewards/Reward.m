@@ -22,36 +22,32 @@
 
 @implementation Reward
 
-@synthesize rewardId, name, repeatable;
+@synthesize repeatable;
 
 static NSString* TAG = @"SOOMLA Reward";
 static DictionaryFactory* dictionaryFactory;
 
 
 - (id)initWithRewardId:(NSString *)oRewardId andName:(NSString *)oName {
-    self = [super init];
+    self = [super initWithName:oName andDescription:@"" andID:oRewardId];
     if ([self class] == [Reward class]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
     }
     
     if (self) {
-        self.rewardId = oRewardId;
-        self.name = oName;
     }
     return self;
 }
 
 - (id)initWithDictionary:(NSDictionary *)dict {
-    self = [super init];
+    self = [super initWithDictionary:dict];
     if ([self class] == [Reward class]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
     }
     
     if (self) {
-        self.rewardId = dict[SOOM_REWARD_REWARDID];
-        self.name = dict[SOOM_NAME];
         self.repeatable = [dict[SOOM_REWARD_REPEAT] boolValue];
     }
     
@@ -59,17 +55,17 @@ static DictionaryFactory* dictionaryFactory;
 }
 
 - (NSDictionary *)toDictionary {
-    return @{
-             SOOM_CLASSNAME: NSStringFromClass([self class]),
-             SOOM_REWARD_REWARDID: self.rewardId,
-             SOOM_NAME: self.name,
-             SOOM_REWARD_REPEAT: @(self.repeatable)
-             };
+    NSDictionary* parentDict = [super toDictionary];
+    
+    NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
+    [toReturn setObject:@(self.repeatable) forKey:SOOM_REWARD_REPEAT];
+    
+    return toReturn;
 }
 
 - (BOOL)give {
     if ([RewardStorage isRewardGiven:self] && !self.repeatable) {
-        LogDebug(TAG, ([NSString stringWithFormat:@"Reward was already given and is not repeatable. id: %@", self.rewardId]));
+        LogDebug(TAG, ([NSString stringWithFormat:@"Reward was already given and is not repeatable. id: %@", self.ID]));
         return NO;
     }
 
@@ -83,7 +79,7 @@ static DictionaryFactory* dictionaryFactory;
 
 - (BOOL)take {
     if ([RewardStorage isRewardGiven:self]) {
-        LogDebug(TAG, ([NSString stringWithFormat:@"Reward not give. id: %@", self.rewardId]));
+        LogDebug(TAG, ([NSString stringWithFormat:@"Reward not give. id: %@", self.ID]));
         return NO;
     }
     

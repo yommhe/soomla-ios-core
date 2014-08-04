@@ -14,17 +14,14 @@
  limitations under the License.
  */
 
+#import "SoomlaEntity.h"
+
 // TODOL document abstract class
-@interface Reward : NSObject {
-    
+@interface Reward : SoomlaEntity {
     @private
-    NSString* rewardId;
-    NSString* name;
     BOOL repeatable;
 }
 
-@property (strong, nonatomic) NSString* rewardId;
-@property (strong, nonatomic) NSString* name;
 @property (nonatomic) BOOL repeatable;
 
 

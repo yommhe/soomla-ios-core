@@ -16,10 +16,13 @@
 
 #import "SoomlaEntity.h"
 #import "JSONConsts.h"
+#import "SoomlaUtils.h"
 
 @implementation SoomlaEntity
 
 @synthesize name, description, ID;
+
+static NSString* TAG = @"SOOMLA SoomlaEntity";
 
 - (id)init{
     self = [super init];
@@ -41,7 +44,7 @@
     if (self) {
         self.name = oName;
         self.description = oDescription;
-        self.ID = oID;
+        ID = oID;
     }
     
     return self;
@@ -57,7 +60,7 @@
     
     if (self) {
         self.name = [dict objectForKey:SOOM_ENTITY_NAME];
-        self.ID = [dict objectForKey:SOOM_ENTITY_ID];
+        ID = [dict objectForKey:SOOM_ENTITY_ID];
         self.description = [dict objectForKey:SOOM_ENTITY_DESCRIPTION] ?: @"";
     }
     
@@ -71,9 +74,28 @@
     if (!self.description) {
         self.description = @"";
     }
-    return @{ SOOM_ENTITY_NAME: self.name,
-              SOOM_ENTITY_DESCRIPTION: self.description,
-              SOOM_ENTITY_ID: self.ID };
+    return @{
+             SOOM_CLASSNAME: NSStringFromClass([self class]),
+             SOOM_ENTITY_NAME: self.name,
+             SOOM_ENTITY_DESCRIPTION: self.description,
+             SOOM_ENTITY_ID: self.ID
+             };
+}
+
+- (id)clone:(NSString*)newId {
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:[self toDictionary]];
+    [dict setObject:newId forKey:SOOM_ENTITY_ID];
+    
+    Class clazz = self.class;
+    id obj = NULL;
+    
+    if (clazz) {
+        obj = [[clazz alloc] initWithDictionary:dict];
+    } else {
+        LogDebug(TAG, ([NSString stringWithFormat:@"Error when trying to close class."]));
+    }
+    
+    return obj;
 }
 
 @end

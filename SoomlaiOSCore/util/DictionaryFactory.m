@@ -29,7 +29,7 @@ static NSString* TAG = @"SOOMLA DictionaryFactory";
     if (clazz) {
         obj = [[clazz alloc] initWithDictionary:dict];
     } else {
-        LogDebug(TAG, ([NSString stringWithFormat:@"Unknown class name: %@", className]));
+        LogError(TAG, ([NSString stringWithFormat:@"Unknown class name: %@", className]));
     }
     
     return obj;

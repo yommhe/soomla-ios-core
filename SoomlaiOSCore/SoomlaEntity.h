@@ -31,7 +31,7 @@
 
 @property (retain, nonatomic) NSString* name;
 @property (retain, nonatomic) NSString* description;
-@property (retain, nonatomic) NSString* ID;
+@property (retain, nonatomic, readonly) NSString* ID;
 
 - (id)init;
 
@@ -59,4 +59,5 @@
  */
 - (NSDictionary*)toDictionary;
 
+- (id)clone:(NSString*)newId;
 @end

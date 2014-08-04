@@ -30,7 +30,7 @@
 }
 
 + (void)setStatus:(BOOL)status forReward:(Reward *)reward andNotify:(BOOL)notify {
-    NSString* key = [self keyRewardGivenWithRewardId:reward.rewardId];
+    NSString* key = [self keyRewardGivenWithRewardId:reward.ID];
     
     // check that non-repeatable rewards are not given twice (by event)
     if (!reward.repeatable) {
@@ -38,7 +38,7 @@
         if (given && status) {
             NSString* msg = [NSString stringWithFormat:
                              @"non-repeatable reward <%@> already given - suppress notify to FALSE",
-                             reward.rewardId];
+                             reward.ID];
             LogDebug(@"SOOMLA RewardStorage", msg);
             notify = FALSE;
         }
@@ -57,13 +57,13 @@
 }
 
 + (BOOL)isRewardGiven:(Reward *)reward {
-    NSString* key = [self keyRewardGivenWithRewardId:reward.rewardId];
+    NSString* key = [self keyRewardGivenWithRewardId:reward.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0);
 }
 
 + (int)getLastSeqIdxGivenForReward:(SequenceReward *)sequenceReward {
-    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceReward.rewardId];
+    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceReward.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     
     if (!val || [val length] == 0){
@@ -74,7 +74,7 @@
 }
 
 + (void)setLastSeqIdxGiven:(int)idx ForReward:(SequenceReward *)sequenceReward {
-    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceReward.rewardId];
+    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceReward.ID];
     NSString* val = [[NSNumber numberWithInt:idx] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
