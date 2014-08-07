@@ -19,10 +19,11 @@
 #import "RewardStorage.h"
 #import "SoomlaUtils.h"
 #import "DictionaryFactory.h"
+#import "TimeStrategy.h"
 
 @implementation Reward
 
-@synthesize repeatable;
+@synthesize timeStrategy;
 
 static NSString* TAG = @"SOOMLA Reward";
 static DictionaryFactory* dictionaryFactory;
@@ -36,6 +37,7 @@ static DictionaryFactory* dictionaryFactory;
     }
     
     if (self) {
+        self.timeStrategy = [TimeStrategy Once];
     }
     return self;
 }
@@ -48,7 +50,11 @@ static DictionaryFactory* dictionaryFactory;
     }
     
     if (self) {
-        self.repeatable = [dict[SOOM_REWARD_REPEAT] boolValue];
+        if ([dict objectForKey:SOOM_TIME_STRATEGY]) {
+            self.timeStrategy = [[TimeStrategy alloc] initWithDictionary:[dict objectForKey:SOOM_TIME_STRATEGY]];
+        } else {
+            self.timeStrategy = [TimeStrategy Once];
+        }
     }
     
     return self;
@@ -58,13 +64,17 @@ static DictionaryFactory* dictionaryFactory;
     NSDictionary* parentDict = [super toDictionary];
     
     NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
-    [toReturn setObject:@(self.repeatable) forKey:SOOM_REWARD_REPEAT];
+    if (self.timeStrategy) {
+        [toReturn setObject:[timeStrategy toDictionary] forKey:SOOM_TIME_STRATEGY];
+    } else {
+        [toReturn setObject:[[TimeStrategy Once] toDictionary] forKey:SOOM_TIME_STRATEGY];
+    }
     
     return toReturn;
 }
 
 - (BOOL)give {
-    if ([RewardStorage isRewardGiven:self] && !self.repeatable) {
+    if ([timeStrategy approveWithLastTime:[RewardStorage getLastGivenTimeForReward:self] andTimesApproved:[RewardStorage getTimesGivenForReward:self]]) {
         LogDebug(TAG, ([NSString stringWithFormat:@"Reward was already given and is not repeatable. id: %@", self.ID]));
         return NO;
     }

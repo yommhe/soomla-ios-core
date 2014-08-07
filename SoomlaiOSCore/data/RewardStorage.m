@@ -30,36 +30,11 @@
 }
 
 + (void)setStatus:(BOOL)status forReward:(Reward *)reward andNotify:(BOOL)notify {
-    NSString* key = [self keyRewardGivenWithRewardId:reward.ID];
-    
-    // check that non-repeatable rewards are not given twice (by event)
-    if (!reward.repeatable) {
-        BOOL given = [[KeyValueStorage getValueForKey:key] isEqualToString:@"yes"];
-        if (given && status) {
-            NSString* msg = [NSString stringWithFormat:
-                             @"non-repeatable reward <%@> already given - suppress notify to FALSE",
-                             reward.ID];
-            LogDebug(@"SOOMLA RewardStorage", msg);
-            notify = FALSE;
-        }
-    }
-    
-    if (status) {
-        [KeyValueStorage setValue:@"yes" forKey:key];
-        
-        if (notify) {
-            [SoomlaEventHandling postRewardGiven:reward];
-        }
-    } else {
-        [KeyValueStorage deleteValueForKey:key];
-        [SoomlaEventHandling postRewardTaken:reward];
-    }
+    [self setRewardTimesGiven:reward up:status andNotify:notify];
 }
 
 + (BOOL)isRewardGiven:(Reward *)reward {
-    NSString* key = [self keyRewardGivenWithRewardId:reward.ID];
-    NSString* val = [KeyValueStorage getValueForKey:key];
-    return (val && [val length] > 0);
+    return [self getTimesGivenForReward:reward] > 0;
 }
 
 + (int)getLastSeqIdxGivenForReward:(SequenceReward *)sequenceReward {
@@ -80,6 +55,55 @@
     [KeyValueStorage setValue:val forKey:key];
 }
 
++ (void)setRewardTimesGiven:(Reward*)reward up:(BOOL)up andNotify:(BOOL)notify {
+    int total = [self getTimesGivenForReward:reward] + (up ? 1 : -1);
+    NSString* key = [self keyRewardTimesGiven:reward.ID];
+    NSString* val = [[NSNumber numberWithInt:total] stringValue];
+    
+    [KeyValueStorage setValue:val forKey:key];
+    
+    if (up) {
+        key = [self keyRewardLastGiven:reward.ID];
+        val = [NSString stringWithFormat:@"%lld",(long long)([[NSDate date] timeIntervalSince1970] * 1000)];
+        
+        [KeyValueStorage setValue:val forKey:key];
+    }
+    
+    if (notify) {
+        if (up) {
+            [SoomlaEventHandling postRewardGiven:reward];
+        } else {
+            [SoomlaEventHandling postRewardTaken:reward];
+        }
+    }
+}
+
++ (int)getTimesGivenForReward:(Reward*)reward {
+    NSString* key = [self keyRewardTimesGiven:reward.ID];
+    NSString* val = [KeyValueStorage getValueForKey:key];
+    if (!val || [val length] == 0){
+        return 0;
+    }
+    return [val intValue];
+}
+
++ (NSDate*)getLastGivenTimeForReward:(Reward*)reward {
+    long long timeMillis = [self getLastGivenTimeMillisForReward:reward];
+    if (timeMillis == 0) {
+        return NULL;
+    }
+    return [NSDate dateWithTimeIntervalSince1970:(timeMillis/1000)];
+}
+
++ (long long)getLastGivenTimeMillisForReward:(Reward*)reward {
+    NSString* key = [self keyRewardTimesGiven:reward.ID];
+    NSString* val = [KeyValueStorage getValueForKey:key];
+    if (!val || [val length] == 0){
+        return 0;
+    }
+    return [val longLongValue];
+}
+
 
 // Private
 
@@ -87,13 +111,16 @@
     return [NSString stringWithFormat: @"%@rewards.%@.%@", DB_KEY_PREFIX, rewardId, postfix];
 }
 
-+ (NSString *)keyRewardGivenWithRewardId:(NSString *)rewardId {
-    return [self keyRewardsWithRewardId:rewardId AndPostfix:@"given"];
++ (NSString *)keyRewardTimesGiven:(NSString *)rewardId {
+    return [self keyRewardsWithRewardId:rewardId AndPostfix:@"timesGiven"];
+}
+
++ (NSString *)keyRewardLastGiven:(NSString *)rewardId {
+    return [self keyRewardsWithRewardId:rewardId AndPostfix:@"lastGiven"];
 }
 
 + (NSString *)keyRewardIdxSeqGivenWithRewardId:(NSString *)rewardId {
     return [self keyRewardsWithRewardId:rewardId AndPostfix:@"seq.idx"];
 }
-
 
 @end

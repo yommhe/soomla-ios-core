@@ -22,11 +22,17 @@ extern NSString *const SOOM_ENTITY_ID;
 extern NSString *const SOOM_ASSOCITEMID;
 extern NSString *const SOOM_NAME;
 extern NSString *const SOOM_CLASSNAME;
+extern NSString *const SOOM_TIME_STRATEGY;
 
 /** Reward **/
 
 extern NSString *const SOOM_REWARDS;
-extern NSString *const SOOM_REWARD_REPEAT;
 extern NSString *const SOOM_REWARD_REWARDID;
 extern NSString *const SOOM_REWARD_AMOUNT;
 extern NSString *const SOOM_REWARD_ICONURL;
+
+/** Time Strategy **/
+
+extern NSString *const SOOM_TS_KIND;
+extern NSString *const SOOM_TS_START;
+extern NSString *const SOOM_TS_REPEAT;

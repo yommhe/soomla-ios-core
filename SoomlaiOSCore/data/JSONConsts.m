@@ -19,18 +19,22 @@
 
 /** Global **/
 
-NSString *const SOOM_ASSOCITEMID      = @"associatedItemId";
-NSString *const SOOM_NAME             = @"name";
-NSString *const SOOM_CLASSNAME        = @"className";
-
-NSString *const SOOM_ENTITY_NAME       = @"name";
+NSString *const SOOM_ENTITY_NAME        = @"name";
 NSString *const SOOM_ENTITY_DESCRIPTION = @"description";
-NSString *const SOOM_ENTITY_ID         = @"itemId";
+NSString *const SOOM_ENTITY_ID          = @"itemId";
+NSString *const SOOM_ASSOCITEMID        = @"associatedItemId";
+NSString *const SOOM_NAME               = @"name";
+NSString *const SOOM_CLASSNAME          = @"className";
+NSString *const SOOM_TIME_STRATEGY      = @"timeStrategy";
 
 /** Reward **/
 
 NSString *const SOOM_REWARDS          = @"rewards";
-NSString *const SOOM_REWARD_REPEAT    = @"repeatable";
 NSString *const SOOM_REWARD_REWARDID  = @"rewardId";
 NSString *const SOOM_REWARD_AMOUNT    = @"amount";
 NSString *const SOOM_REWARD_ICONURL   = @"iconUrl";
+
+NSString *const SOOM_TS_KIND          = @"tsKind";
+NSString *const SOOM_TS_START         = @"tsStart";
+NSString *const SOOM_TS_REPEAT        = @"tsRepeat";
+

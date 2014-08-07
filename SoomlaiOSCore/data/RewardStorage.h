@@ -29,4 +29,10 @@
 
 + (void)setLastSeqIdxGiven:(int)idx ForReward:(SequenceReward *)sequenceReward;
 
++ (int)getTimesGivenForReward:(Reward*)reward;
+
++ (NSDate*)getLastGivenTimeForReward:(Reward*)reward;
+
++ (long long)getLastGivenTimeMillisForReward:(Reward*)reward;
+
 @end
