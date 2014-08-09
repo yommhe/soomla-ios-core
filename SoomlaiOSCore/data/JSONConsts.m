@@ -25,7 +25,7 @@ NSString *const SOOM_ENTITY_ID          = @"itemId";
 NSString *const SOOM_ASSOCITEMID        = @"associatedItemId";
 NSString *const SOOM_NAME               = @"name";
 NSString *const SOOM_CLASSNAME          = @"className";
-NSString *const SOOM_TIME_STRATEGY      = @"timeStrategy";
+NSString *const SOOM_SCHEDULE           = @"schedule";
 
 /** Reward **/
 
@@ -34,7 +34,10 @@ NSString *const SOOM_REWARD_REWARDID  = @"rewardId";
 NSString *const SOOM_REWARD_AMOUNT    = @"amount";
 NSString *const SOOM_REWARD_ICONURL   = @"iconUrl";
 
-NSString *const SOOM_TS_KIND          = @"tsKind";
-NSString *const SOOM_TS_START         = @"tsStart";
-NSString *const SOOM_TS_REPEAT        = @"tsRepeat";
+/** Schedule **/
 
+NSString *const SOOM_SCHE_REC	       = @"schedRecurrence";
+NSString *const SOOM_SCHE_RANGES       = @"schedTimeRanges";
+NSString *const SOOM_SCHE_RANGE_START  = @"schedTimeRangeStart";
+NSString *const SOOM_SCHE_RANGE_END	   = @"schedTimeRangeEnd";
+NSString *const SOOM_SCHE_APPROVALS    = @"schedApprovals";

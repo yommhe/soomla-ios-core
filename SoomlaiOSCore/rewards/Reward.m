@@ -19,11 +19,11 @@
 #import "RewardStorage.h"
 #import "SoomlaUtils.h"
 #import "DictionaryFactory.h"
-#import "TimeStrategy.h"
+#import "Schedule.h"
 
 @implementation Reward
 
-@synthesize timeStrategy;
+@synthesize schedule;
 
 static NSString* TAG = @"SOOMLA Reward";
 static DictionaryFactory* dictionaryFactory;
@@ -37,7 +37,7 @@ static DictionaryFactory* dictionaryFactory;
     }
     
     if (self) {
-        self.timeStrategy = [TimeStrategy Once];
+        self.schedule = [Schedule Once];
     }
     return self;
 }
@@ -50,10 +50,10 @@ static DictionaryFactory* dictionaryFactory;
     }
     
     if (self) {
-        if ([dict objectForKey:SOOM_TIME_STRATEGY]) {
-            self.timeStrategy = [[TimeStrategy alloc] initWithDictionary:[dict objectForKey:SOOM_TIME_STRATEGY]];
+        if ([dict objectForKey:SOOM_SCHEDULE]) {
+            self.schedule = [[Schedule alloc] initWithDictionary:[dict objectForKey:SOOM_SCHEDULE]];
         } else {
-            self.timeStrategy = [TimeStrategy Once];
+            self.schedule = [Schedule Once];
         }
     }
     
@@ -64,18 +64,18 @@ static DictionaryFactory* dictionaryFactory;
     NSDictionary* parentDict = [super toDictionary];
     
     NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
-    if (self.timeStrategy) {
-        [toReturn setObject:[timeStrategy toDictionary] forKey:SOOM_TIME_STRATEGY];
+    if (self.schedule) {
+        [toReturn setObject:[schedule toDictionary] forKey:SOOM_SCHEDULE];
     } else {
-        [toReturn setObject:[[TimeStrategy Once] toDictionary] forKey:SOOM_TIME_STRATEGY];
+        [toReturn setObject:[[Schedule Once] toDictionary] forKey:SOOM_SCHEDULE];
     }
     
     return toReturn;
 }
 
 - (BOOL)give {
-    if ([timeStrategy approveWithLastTime:[RewardStorage getLastGivenTimeForReward:self] andTimesApproved:[RewardStorage getTimesGivenForReward:self]]) {
-        LogDebug(TAG, ([NSString stringWithFormat:@"Reward was already given and is not repeatable. id: %@", self.ID]));
+    if ([schedule approveWithActivationTimes:[RewardStorage getTimesGivenForReward:self]]) {
+        LogDebug(TAG, ([NSString stringWithFormat:@"(Give) Reward is not approved by Schedule. id: %@", self.ID]));
         return NO;
     }
 

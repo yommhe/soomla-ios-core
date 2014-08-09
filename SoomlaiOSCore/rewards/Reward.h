@@ -16,14 +16,14 @@
 
 #import "SoomlaEntity.h"
 
-@class TimeStrategy;
+@class Schedule;
 
 // TODOL document abstract class
 @interface Reward : SoomlaEntity {
-    TimeStrategy* timeStrategy;
+    Schedule* schedule;
 }
 
-@property (nonatomic) TimeStrategy* timeStrategy;
+@property (nonatomic) Schedule* schedule;
 
 
 - (id)initWithRewardId:(NSString *)oRewardId andName:(NSString *)oName;

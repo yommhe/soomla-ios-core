@@ -19,7 +19,6 @@
 #import "BadgeReward.h"
 #import "RewardStorage.h"
 #import "SoomlaUtils.h"
-#import "TimeStrategy.h"
 
 @implementation SequenceReward
 
@@ -35,7 +34,6 @@ static NSString* TAG = @"SOOMLA SequenceReward";
         }
 
         self.rewards = oRewards;
-        self.timeStrategy = [TimeStrategy Always];
     }
     
     return self;
@@ -64,7 +62,6 @@ static NSString* TAG = @"SOOMLA SequenceReward";
         }
         
         self.rewards = tmpRewards;
-        self.timeStrategy = [TimeStrategy Always];
     }
     
     return self;

@@ -36,8 +36,8 @@
 		C0233484194B05C0005DE53A /* SequenceReward.m in Sources */ = {isa = PBXBuildFile; fileRef = C023347A194B05C0005DE53A /* SequenceReward.m */; };
 		C0233489194B06C1005DE53A /* SoomlaEventHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233487194B06C1005DE53A /* SoomlaEventHandling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023348A194B06C1005DE53A /* SoomlaEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233488194B06C1005DE53A /* SoomlaEventHandling.m */; };
-		C09D1CFB1992676500BC370A /* TimeStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = C09D1CF91992676500BC370A /* TimeStrategy.h */; };
-		C09D1CFC1992676500BC370A /* TimeStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = C09D1CFA1992676500BC370A /* TimeStrategy.m */; };
+		C09D1CFB1992676500BC370A /* Schedule.h in Headers */ = {isa = PBXBuildFile; fileRef = C09D1CF91992676500BC370A /* Schedule.h */; };
+		C09D1CFC1992676500BC370A /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = C09D1CFA1992676500BC370A /* Schedule.m */; };
 		C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C5F2168C6D0C00161FAA /* Foundation.framework */; };
 		C0FD6017197C18E6003001F5 /* SoomlaEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = C0FD6015197C18E6003001F5 /* SoomlaEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0FD6018197C18E6003001F5 /* SoomlaEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FD6016197C18E6003001F5 /* SoomlaEntity.m */; };
@@ -89,8 +89,8 @@
 		C023347A194B05C0005DE53A /* SequenceReward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequenceReward.m; sourceTree = "<group>"; };
 		C0233487194B06C1005DE53A /* SoomlaEventHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaEventHandling.h; sourceTree = "<group>"; };
 		C0233488194B06C1005DE53A /* SoomlaEventHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaEventHandling.m; sourceTree = "<group>"; };
-		C09D1CF91992676500BC370A /* TimeStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeStrategy.h; sourceTree = "<group>"; };
-		C09D1CFA1992676500BC370A /* TimeStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeStrategy.m; sourceTree = "<group>"; };
+		C09D1CF91992676500BC370A /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		C09D1CFA1992676500BC370A /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		C0B3C5EF168C6D0C00161FAA /* libSoomlaiOSCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoomlaiOSCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B3C5F2168C6D0C00161FAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C0FD6015197C18E6003001F5 /* SoomlaEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaEntity.h; sourceTree = "<group>"; };
@@ -201,8 +201,8 @@
 				C0233428194AEE40005DE53A /* SoomlaUtils.m */,
 				EF9E24C61950528E007A3082 /* Soomla.h */,
 				EF9E24C71950528E007A3082 /* Soomla.m */,
-				C09D1CF91992676500BC370A /* TimeStrategy.h */,
-				C09D1CFA1992676500BC370A /* TimeStrategy.m */,
+				C09D1CF91992676500BC370A /* Schedule.h */,
+				C09D1CFA1992676500BC370A /* Schedule.m */,
 			);
 			path = SoomlaiOSCore;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 				C0233461194AEEB8005DE53A /* NSData-Base64.h in Headers */,
 				C0233448194AEE5F005DE53A /* KeyValueStorage.h in Headers */,
 				C0233489194B06C1005DE53A /* SoomlaEventHandling.h in Headers */,
-				C09D1CFB1992676500BC370A /* TimeStrategy.h in Headers */,
+				C09D1CFB1992676500BC370A /* Schedule.h in Headers */,
 				EFC127D3194E046100CDA66B /* DictionaryFactory.h in Headers */,
 				C0233446194AEE5F005DE53A /* KeyValDatabase.h in Headers */,
 				C023347D194B05C0005DE53A /* BadgeReward.h in Headers */,
@@ -325,7 +325,7 @@
 				C0233480194B05C0005DE53A /* RandomReward.m in Sources */,
 				C023342A194AEE40005DE53A /* SoomlaConfig.m in Sources */,
 				EFC127D4194E046100CDA66B /* DictionaryFactory.m in Sources */,
-				C09D1CFC1992676500BC370A /* TimeStrategy.m in Sources */,
+				C09D1CFC1992676500BC370A /* Schedule.m in Sources */,
 				C0233449194AEE5F005DE53A /* KeyValueStorage.m in Sources */,
 				C0233482194B05C0005DE53A /* Reward.m in Sources */,
 				C023348A194B06C1005DE53A /* SoomlaEventHandling.m in Sources */,

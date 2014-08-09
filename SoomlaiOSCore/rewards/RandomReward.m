@@ -18,7 +18,6 @@
 #import "JSONConsts.h"
 #import "BadgeReward.h"
 #import "SoomlaUtils.h"
-#import "TimeStrategy.h"
 
 @implementation RandomReward
 
@@ -35,7 +34,6 @@ static NSString* TAG = @"SOOMLA RandomReward";
         }
         
         self.rewards = oRewards;
-        self.timeStrategy = [TimeStrategy Always];
     }
     
     return self;
@@ -64,7 +62,6 @@ static NSString* TAG = @"SOOMLA RandomReward";
         
         self.rewards = tmpRewards;
     }
-    self.timeStrategy = [TimeStrategy Always];
     
     return self;
 }
