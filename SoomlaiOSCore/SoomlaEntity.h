@@ -59,5 +59,12 @@
  */
 - (NSDictionary*)toDictionary;
 
+/**
+ Tests equality between two `SoomlaEntity`s
+ 
+ @return `YES` if they are equal, false otherwise
+ */
+- (BOOL)isEqualToSoomlaEntity:(SoomlaEntity*)soomlaEntity;
+
 - (id)clone:(NSString*)newId;
 @end
