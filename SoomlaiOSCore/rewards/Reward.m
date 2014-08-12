@@ -50,8 +50,8 @@ static DictionaryFactory* dictionaryFactory;
     }
     
     if (self) {
-        if ([dict objectForKey:SOOM_SCHEDULE]) {
-            self.schedule = [[Schedule alloc] initWithDictionary:[dict objectForKey:SOOM_SCHEDULE]];
+        if (dict[SOOM_SCHEDULE]) {
+            self.schedule = [[Schedule alloc] initWithDictionary:dict[SOOM_SCHEDULE]];
         } else {
             self.schedule = [Schedule Once];
         }

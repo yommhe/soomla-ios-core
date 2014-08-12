@@ -59,9 +59,9 @@ static NSString* TAG = @"SOOMLA SoomlaEntity";
     }
     
     if (self) {
-        self.name = [dict objectForKey:SOOM_ENTITY_NAME];
-        ID = [dict objectForKey:SOOM_ENTITY_ID];
-        self.description = [dict objectForKey:SOOM_ENTITY_DESCRIPTION] ?: @"";
+        self.name = dict[SOOM_ENTITY_NAME];
+        ID = dict[SOOM_ENTITY_ID];
+        self.description = dict[SOOM_ENTITY_DESCRIPTION] ?: @"";
     }
     
     return self;
