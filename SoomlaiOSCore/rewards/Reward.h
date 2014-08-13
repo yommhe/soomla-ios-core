@@ -36,6 +36,8 @@
 
 - (BOOL)take;
 
+- (BOOL)canGive;
+
 - (BOOL)isOwned;
 
 // Abstract methods

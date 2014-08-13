@@ -74,7 +74,7 @@ static DictionaryFactory* dictionaryFactory;
 }
 
 - (BOOL)give {
-    if ([schedule approveWithActivationTimes:[RewardStorage getTimesGivenForReward:self]]) {
+    if (![self canGive]) {
         LogDebug(TAG, ([NSString stringWithFormat:@"(Give) Reward is not approved by Schedule. id: %@", self.ID]));
         return NO;
     }
@@ -98,6 +98,10 @@ static DictionaryFactory* dictionaryFactory;
         return YES;
     }
     return NO;
+}
+
+- (BOOL)canGive {
+    return [schedule approveWithActivationTimes:[RewardStorage getTimesGivenForReward:self]];
 }
 
 - (BOOL)isOwned {

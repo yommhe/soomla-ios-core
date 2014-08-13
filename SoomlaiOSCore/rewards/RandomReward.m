@@ -81,13 +81,24 @@ static NSString* TAG = @"SOOMLA RandomReward";
 }
 
 - (BOOL)giveInner {
-    int i = arc4random() % [self.rewards count];
+    NSMutableArray* canBeGivenRewards = [NSMutableArray array];
+    for (Reward* reward in self.rewards) {
+        if ([reward canGive]) {
+            [canBeGivenRewards addObject:reward];
+        }
+    }
     
-    Reward* randomReward = self.rewards[i];
+    if (![canBeGivenRewards count]) {
+        LogDebug(TAG, ([NSString stringWithFormat:@"No more rewards to give in this Random Reward: %@", self.ID]));
+        return NO;
+    }
+    
+    int i = arc4random() % [canBeGivenRewards count];
+    Reward* randomReward = canBeGivenRewards[i];
     [randomReward give];
     lastGivenReward = randomReward;
 
-    return true;
+    return YES;
 }
 
 
