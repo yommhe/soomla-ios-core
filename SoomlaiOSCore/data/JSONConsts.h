@@ -19,16 +19,12 @@
 extern NSString *const SOOM_ENTITY_NAME;
 extern NSString *const SOOM_ENTITY_DESCRIPTION;
 extern NSString *const SOOM_ENTITY_ID;
-extern NSString *const SOOM_ASSOCITEMID;
-extern NSString *const SOOM_NAME;
 extern NSString *const SOOM_CLASSNAME;
 extern NSString *const SOOM_SCHEDULE;
 
 /** Reward **/
 
 extern NSString *const SOOM_REWARDS;
-extern NSString *const SOOM_REWARD_REWARDID;
-extern NSString *const SOOM_REWARD_AMOUNT;
 extern NSString *const SOOM_REWARD_ICONURL;
 
 /** Schedule **/
