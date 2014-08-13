@@ -104,6 +104,9 @@ static DictionaryFactory* dictionaryFactory;
     return [RewardStorage isRewardGiven:self];
 }
 
+
+// Abstract methods
+
 - (BOOL)giveInner {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
