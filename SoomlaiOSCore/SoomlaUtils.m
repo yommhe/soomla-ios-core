@@ -121,7 +121,7 @@ static NSString* TAG = @"SOOMLA SoomlaUtils";
             return nil;
         }
         
-        NSString *basePath = [paths objectAtIndex:0];
+        NSString *basePath = paths[0];
         NSError *error;
         
         NSFileManager *fManager = [NSFileManager defaultManager];

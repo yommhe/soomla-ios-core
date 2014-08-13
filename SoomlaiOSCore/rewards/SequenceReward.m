@@ -89,7 +89,7 @@ static NSString* TAG = @"SOOMLA SequenceReward";
     if (idx < 0) {
         return nil;
     }
-    return [self.rewards objectAtIndex:idx];
+    return self.rewards[idx];
 }
 
 - (BOOL)hasMoreToGive {
@@ -98,7 +98,7 @@ static NSString* TAG = @"SOOMLA SequenceReward";
 
 - (BOOL)forceGiveNextReward:(Reward *)reward {
     for (int i = 0; i < [self.rewards count]; i++) {
-        if ([((Reward*)[self.rewards objectAtIndex:i]).ID isEqualToString:reward.ID]) {
+        if ([((Reward*)self.rewards[i]).ID isEqualToString:reward.ID]) {
             [RewardStorage setLastSeqIdxGiven:(i - 1) ForReward:self];
             return YES;
         }
