@@ -59,9 +59,9 @@ static NSString* TAG = @"SOOMLA SoomlaEntity";
     }
     
     if (self) {
-        self.name = [dict objectForKey:SOOM_ENTITY_NAME];
-        ID = [dict objectForKey:SOOM_ENTITY_ID];
-        self.description = [dict objectForKey:SOOM_ENTITY_DESCRIPTION] ?: @"";
+        self.name = dict[SOOM_ENTITY_NAME];
+        ID = dict[SOOM_ENTITY_ID];
+        self.description = dict[SOOM_ENTITY_DESCRIPTION] ?: @"";
     }
     
     return self;
@@ -82,6 +82,13 @@ static NSString* TAG = @"SOOMLA SoomlaEntity";
              };
 }
 
+- (BOOL)isEqualToSoomlaEntity:(SoomlaEntity*)soomlaEntity {
+    if (!soomlaEntity) {
+        return NO;
+    }
+    return [self.ID isEqualToString:soomlaEntity.ID];
+}
+
 - (id)clone:(NSString*)newId {
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:[self toDictionary]];
     [dict setObject:newId forKey:SOOM_ENTITY_ID];
@@ -96,6 +103,24 @@ static NSString* TAG = @"SOOMLA SoomlaEntity";
     }
     
     return obj;
+}
+
+#pragma mark - NSObject
+
+- (BOOL)isEqual:(id)object {
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SoomlaEntity class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToSoomlaEntity:(SoomlaEntity *)object];
+}
+
+- (NSUInteger)hash {
+    return [self.ID hash];
 }
 
 @end

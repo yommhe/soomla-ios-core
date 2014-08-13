@@ -31,6 +31,8 @@
 
 + (int)getTimesGivenForReward:(Reward*)reward;
 
++ (void)setTimesGivenForReward:(Reward*)reward up:(BOOL)up andNotify:(BOOL)notify;
+
 + (NSDate*)getLastGivenTimeForReward:(Reward*)reward;
 
 + (long long)getLastGivenTimeMillisForReward:(Reward*)reward;

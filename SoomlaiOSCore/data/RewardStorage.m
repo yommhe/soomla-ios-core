@@ -30,7 +30,7 @@
 }
 
 + (void)setStatus:(BOOL)status forReward:(Reward *)reward andNotify:(BOOL)notify {
-    [self setRewardTimesGiven:reward up:status andNotify:notify];
+    [self setTimesGivenForReward:reward up:status andNotify:notify];
 }
 
 + (BOOL)isRewardGiven:(Reward *)reward {
@@ -55,7 +55,7 @@
     [KeyValueStorage setValue:val forKey:key];
 }
 
-+ (void)setRewardTimesGiven:(Reward*)reward up:(BOOL)up andNotify:(BOOL)notify {
++ (void)setTimesGivenForReward:(Reward*)reward up:(BOOL)up andNotify:(BOOL)notify {
     int total = [self getTimesGivenForReward:reward] + (up ? 1 : -1);
     NSString* key = [self keyRewardTimesGiven:reward.ID];
     NSString* val = [[NSNumber numberWithInt:total] stringValue];

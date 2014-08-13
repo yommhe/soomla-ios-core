@@ -64,7 +64,7 @@
     NSMutableDictionary* results = [NSMutableDictionary dictionary];
     NSArray* keys = [dbResults allKeys];
     for (NSString* key in keys) {
-        NSString* val = [dbResults objectForKey:key];
+        NSString* val = dbResults[key];
         if (val && [val length]>0){
             NSString* valDec = [SoomlaEncryptor decryptToString:val];
             if (valDec && [valDec length]>0){
