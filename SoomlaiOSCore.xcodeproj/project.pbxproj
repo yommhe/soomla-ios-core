@@ -36,7 +36,7 @@
 		C0233484194B05C0005DE53A /* SequenceReward.m in Sources */ = {isa = PBXBuildFile; fileRef = C023347A194B05C0005DE53A /* SequenceReward.m */; };
 		C0233489194B06C1005DE53A /* SoomlaEventHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233487194B06C1005DE53A /* SoomlaEventHandling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023348A194B06C1005DE53A /* SoomlaEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233488194B06C1005DE53A /* SoomlaEventHandling.m */; };
-		C09D1CFB1992676500BC370A /* Schedule.h in Headers */ = {isa = PBXBuildFile; fileRef = C09D1CF91992676500BC370A /* Schedule.h */; };
+		C09D1CFB1992676500BC370A /* Schedule.h in Headers */ = {isa = PBXBuildFile; fileRef = C09D1CF91992676500BC370A /* Schedule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C09D1CFC1992676500BC370A /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = C09D1CFA1992676500BC370A /* Schedule.m */; };
 		C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C5F2168C6D0C00161FAA /* Foundation.framework */; };
 		C0FD6017197C18E6003001F5 /* SoomlaEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = C0FD6015197C18E6003001F5 /* SoomlaEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -228,15 +228,15 @@
 				C023342B194AEE40005DE53A /* SoomlaUtils.h in Headers */,
 				C0233429194AEE40005DE53A /* SoomlaConfig.h in Headers */,
 				C0233483194B05C0005DE53A /* SequenceReward.h in Headers */,
-				C0233470194B058C005DE53A /* JSONConsts.h in Headers */,
 				EF9E24C81950528E007A3082 /* Soomla.h in Headers */,
 				C0233461194AEEB8005DE53A /* NSData-Base64.h in Headers */,
 				C0233448194AEE5F005DE53A /* KeyValueStorage.h in Headers */,
 				C0233489194B06C1005DE53A /* SoomlaEventHandling.h in Headers */,
-				C09D1CFB1992676500BC370A /* Schedule.h in Headers */,
 				EFC127D3194E046100CDA66B /* DictionaryFactory.h in Headers */,
+				C09D1CFB1992676500BC370A /* Schedule.h in Headers */,
 				C0233446194AEE5F005DE53A /* KeyValDatabase.h in Headers */,
 				C023347D194B05C0005DE53A /* BadgeReward.h in Headers */,
+				C0233470194B058C005DE53A /* JSONConsts.h in Headers */,
 				C023345F194AEEB8005DE53A /* FBEncryptorAES.h in Headers */,
 				C0233450194AEE5F005DE53A /* SoomlaEncryptor.h in Headers */,
 				C0233464194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch in Headers */,
