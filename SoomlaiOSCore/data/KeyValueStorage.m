@@ -109,4 +109,8 @@
     [[self kvDatabase] deleteKeyValWithKey:key];
 }
 
++ (void)purge {
+    [[self kvDatabase] purgeDatabase];
+}
+
 @end
