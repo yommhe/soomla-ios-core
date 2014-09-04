@@ -103,6 +103,33 @@
     }
 }
 
+- (void)purgeDatabase {
+    @synchronized(self) {
+        NSString* databasebPath = [[SoomlaUtils applicationDirectory] stringByAppendingPathComponent:DATABASE_NAME];
+        if (sqlite3_open([databasebPath UTF8String], &database) == SQLITE_OK)
+        {
+            NSString* deleteStmt = [NSString stringWithFormat:@"DELETE FROM %@", KEYVAL_TABLE_NAME];
+            sqlite3_stmt *statement;
+            if (sqlite3_prepare_v2(database, [deleteStmt UTF8String], -1, &statement, NULL) != SQLITE_OK){
+                LogError(TAG, ([NSString stringWithFormat:@"Deleting databse failed: %s.", sqlite3_errmsg(database)]));
+            }
+            else {
+                if(SQLITE_DONE != sqlite3_step(statement)){
+                    NSAssert1(0, @"Error while purging database. '%s'", sqlite3_errmsg(database));
+                    sqlite3_reset(statement);
+                }
+            }
+            
+            // Finalize and close database.
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+        }
+        else{
+            LogError(TAG, @"Failed to open/create database");
+        }
+    }
+}
+
 - (NSDictionary*)getKeysValsForQuery:(NSString*)query {
     @synchronized(self) {
         NSMutableDictionary *results = [NSMutableDictionary dictionary];
