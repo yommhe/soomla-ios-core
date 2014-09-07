@@ -41,7 +41,7 @@
     NSDictionary* parentDict = [super toDictionary];
     
     NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
-    [toReturn setObject:self.iconUrl forKey:SOOM_REWARD_ICONURL];
+    [toReturn setObject:(self.iconUrl ?: [NSNull null]) forKey:SOOM_REWARD_ICONURL];
     
     return toReturn;
 }
