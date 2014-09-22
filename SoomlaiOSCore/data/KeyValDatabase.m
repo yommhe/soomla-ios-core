@@ -322,10 +322,6 @@ static NSString* TAG = @"SOOMLA KeyValDatabase";
     return [NSString stringWithFormat:@"currency.%@.balance", itemId];
 }
 
-+ (NSString*) keyNonConsExists:(NSString*)productId {
-    return [NSString stringWithFormat:@"nonconsumable.%@.exists", productId];
-}
-
 + (NSString*) keyMetaStoreInfo {
     return @"meta.storeinfo";
 }
