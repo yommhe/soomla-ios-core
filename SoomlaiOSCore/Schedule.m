@@ -106,6 +106,7 @@ static NSString* TAG = @"SOOMLA Schedule";
     }
     
     return @{
+             SOOM_CLASSNAME : [SoomlaUtils getClassName:self],
              SOOM_SCHE_REC: [NSNumber numberWithInt:recurrence],
              SOOM_SCHE_RANGES: tmpTimeRanges,
              SOOM_SCHE_APPROVALS: [NSNumber numberWithInt:activationLimit]

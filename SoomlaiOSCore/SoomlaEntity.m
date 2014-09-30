@@ -75,7 +75,7 @@ static NSString* TAG = @"SOOMLA SoomlaEntity";
         self.description = @"";
     }
     return @{
-             SOOM_CLASSNAME: NSStringFromClass([self class]),
+             SOOM_CLASSNAME: [SoomlaUtils getClassName:self],
              SOOM_ENTITY_NAME: self.name,
              SOOM_ENTITY_DESCRIPTION: self.description,
              SOOM_ENTITY_ID: self.ID
