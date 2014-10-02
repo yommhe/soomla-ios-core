@@ -86,8 +86,6 @@
 
 + (NSString*) keyCurrencyBalance:(NSString*)itemId;
 
-+ (NSString*) keyNonConsExists:(NSString*)productId;
-
 + (NSString*) keyMetaStoreInfo;
 
 @end
