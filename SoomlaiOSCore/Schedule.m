@@ -96,16 +96,20 @@ static NSString* TAG = @"SOOMLA Schedule";
 
 - (NSDictionary *)toDictionary {
     NSMutableArray* tmpTimeRanges = [NSMutableArray array];
-    for(DateTimeRange* dtr in timeRanges) {
-        long long startMillis = (long long)([dtr.start timeIntervalSince1970] * 1000);
-        long long endMillis = (long long)([dtr.end timeIntervalSince1970] * 1000);
-        [tmpTimeRanges addObject:@{
-                                   SOOM_SCHE_RANGE_START: [NSNumber numberWithLongLong:startMillis],
-                                   SOOM_SCHE_RANGE_END: [NSNumber numberWithLongLong:endMillis]
-                                   }];
+    if (timeRanges) {
+        for(DateTimeRange* dtr in timeRanges) {
+            long long startMillis = (long long)([dtr.start timeIntervalSince1970] * 1000);
+            long long endMillis = (long long)([dtr.end timeIntervalSince1970] * 1000);
+            [tmpTimeRanges addObject:@{
+                                       SOOM_CLASSNAME: [SoomlaUtils getClassName:dtr],
+                                       SOOM_SCHE_RANGE_START: [NSNumber numberWithLongLong:startMillis],
+                                       SOOM_SCHE_RANGE_END: [NSNumber numberWithLongLong:endMillis]
+                                       }];
+        }
     }
     
     return @{
+             SOOM_CLASSNAME : [SoomlaUtils getClassName:self],
              SOOM_SCHE_REC: [NSNumber numberWithInt:recurrence],
              SOOM_SCHE_RANGES: tmpTimeRanges,
              SOOM_SCHE_APPROVALS: [NSNumber numberWithInt:activationLimit]

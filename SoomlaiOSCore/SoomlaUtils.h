@@ -62,5 +62,7 @@
 
 + (void)setLoggingEnabled:(BOOL)logEnabled;
 
++ (NSString *)getClassName:(id)target;
+
 @end
 

@@ -157,4 +157,8 @@ static NSString* TAG = @"SOOMLA SoomlaUtils";
     DEBUG_LOG = logEnabled;
 }
 
++ (NSString *)getClassName:(id)target {
+    return NSStringFromClass([target class]);
+}
+
 @end
