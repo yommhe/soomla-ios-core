@@ -15,6 +15,7 @@
 + (void)observeAllEventsWithObserver:(id)observer withSelector:(SEL)selector {
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_GIVEN object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_TAKEN object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_CUSTOM object:nil];
 }
 
 + (void)postRewardGiven:(Reward *)reward {
