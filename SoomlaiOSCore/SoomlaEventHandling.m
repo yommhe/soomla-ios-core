@@ -27,4 +27,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_TAKEN object:self userInfo:userInfo];
 }
 
++ (void)postCustomEventWithName:(NSString*)name andExtraInfo:(NSDictionary*)extra {
+    NSDictionary* userInfo = @{
+                               DICT_ELEMENT_NAME: name,
+                               DICT_ELEMENT_EXTRA: extra
+                               };
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_CUSTOM object:self userInfo:userInfo];
+}
+
 @end
