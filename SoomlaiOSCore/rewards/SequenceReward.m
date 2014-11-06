@@ -85,7 +85,7 @@ static NSString* TAG = @"SOOMLA SequenceReward";
 
 
 - (Reward *)getLastGivenReward {
-    int idx = [RewardStorage getLastSeqIdxGivenForReward:self];
+    int idx = [RewardStorage getLastSeqIdxGivenForSequenceReward:self.ID];
     if (idx < 0) {
         return nil;
     }
@@ -93,13 +93,13 @@ static NSString* TAG = @"SOOMLA SequenceReward";
 }
 
 - (BOOL)hasMoreToGive {
-    return [RewardStorage getLastSeqIdxGivenForReward:self] < [self.rewards count] ;
+    return [RewardStorage getLastSeqIdxGivenForSequenceReward:self.ID] < [self.rewards count] ;
 }
 
 - (BOOL)forceGiveNextReward:(Reward *)reward {
     for (int i = 0; i < [self.rewards count]; i++) {
         if ([((Reward*)self.rewards[i]).ID isEqualToString:reward.ID]) {
-            [RewardStorage setLastSeqIdxGiven:(i - 1) ForReward:self];
+            [RewardStorage setLastSeqIdxGiven:(i - 1) ForSequenceReward:self.ID];
             return YES;
         }
     }
@@ -108,22 +108,22 @@ static NSString* TAG = @"SOOMLA SequenceReward";
 }
 
 - (BOOL)giveInner {
-    int idx = [RewardStorage getLastSeqIdxGivenForReward:self];
+    int idx = [RewardStorage getLastSeqIdxGivenForSequenceReward:self.ID];
     if (idx >= [rewards count]) {
         return NO; // all rewards in the sequence were given
     }
     
-    [RewardStorage setLastSeqIdxGiven:(++idx) ForReward:self];
+    [RewardStorage setLastSeqIdxGiven:(++idx) ForSequenceReward:self.ID];
     return YES;
 }
 
 - (BOOL)takeInner {
-    int idx = [RewardStorage getLastSeqIdxGivenForReward:self];
+    int idx = [RewardStorage getLastSeqIdxGivenForSequenceReward:self.ID];
     if (idx <= 0) {
         return NO; // all rewards in the sequence were taken
     }
     
-    [RewardStorage setLastSeqIdxGiven:(--idx) ForReward:self];
+    [RewardStorage setLastSeqIdxGiven:(--idx) ForSequenceReward:self.ID];
     return YES;
 }
 

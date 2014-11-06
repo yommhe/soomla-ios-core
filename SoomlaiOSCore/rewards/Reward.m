@@ -80,7 +80,7 @@ static DictionaryFactory* dictionaryFactory;
     }
 
     if ([self giveInner]) {
-        [RewardStorage setStatus:YES forReward:self];
+        [RewardStorage setStatus:YES forReward:self.ID];
         return YES;
     }
     
@@ -88,24 +88,24 @@ static DictionaryFactory* dictionaryFactory;
 }
 
 - (BOOL)take {
-    if ([RewardStorage isRewardGiven:self]) {
+    if ([RewardStorage isRewardGiven:self.ID]) {
         LogDebug(TAG, ([NSString stringWithFormat:@"Reward not give. id: %@", self.ID]));
         return NO;
     }
     
     if ([self takeInner]) {
-        [RewardStorage setStatus:NO forReward:self];
+        [RewardStorage setStatus:NO forReward:self.ID];
         return YES;
     }
     return NO;
 }
 
 - (BOOL)canGive {
-    return [schedule approveWithActivationTimes:[RewardStorage getTimesGivenForReward:self]];
+    return [schedule approveWithActivationTimes:[RewardStorage getTimesGivenForReward:self.ID]];
 }
 
 - (BOOL)isOwned {
-    return [RewardStorage isRewardGiven:self];
+    return [RewardStorage isRewardGiven:self.ID];
 }
 
 

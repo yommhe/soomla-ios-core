@@ -18,13 +18,17 @@
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_CUSTOM object:nil];
 }
 
-+ (void)postRewardGiven:(Reward *)reward {
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reward forKey:DICT_ELEMENT_REWARD];
++ (void)postRewardGiven:(NSString *)rewardId {
+    NSDictionary *userInfo = @{
+                               DICT_ELEMENT_REWARD: rewardId
+                               };
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_GIVEN object:self userInfo:userInfo];
 }
 
-+ (void)postRewardTaken:(Reward *)reward {
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reward forKey:DICT_ELEMENT_REWARD];
++ (void)postRewardTaken:(NSString *)rewardId {
+    NSDictionary *userInfo = @{
+                               DICT_ELEMENT_REWARD: rewardId
+                               };
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_TAKEN object:self userInfo:userInfo];
 }
 

@@ -25,20 +25,20 @@
 @implementation RewardStorage
 
 
-+ (void)setStatus:(BOOL)status forReward:(Reward *)reward {
-    [self setStatus:status forReward:reward andNotify:YES];
++ (void)setStatus:(BOOL)status forReward:(NSString *)rewardId {
+    [self setStatus:status forReward:rewardId andNotify:YES];
 }
 
-+ (void)setStatus:(BOOL)status forReward:(Reward *)reward andNotify:(BOOL)notify {
-    [self setTimesGivenForReward:reward up:status andNotify:notify];
++ (void)setStatus:(BOOL)status forReward:(NSString *)rewardId andNotify:(BOOL)notify {
+    [self setTimesGivenForReward:rewardId up:status andNotify:notify];
 }
 
-+ (BOOL)isRewardGiven:(Reward *)reward {
-    return [self getTimesGivenForReward:reward] > 0;
++ (BOOL)isRewardGiven:(NSString *)rewardId {
+    return [self getTimesGivenForReward:rewardId] > 0;
 }
 
-+ (int)getLastSeqIdxGivenForReward:(SequenceReward *)sequenceReward {
-    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceReward.ID];
++ (int)getLastSeqIdxGivenForSequenceReward:(NSString *)sequenceRewardId {
+    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceRewardId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     
     if (!val || [val length] == 0){
@@ -48,22 +48,22 @@
     return [val intValue];
 }
 
-+ (void)setLastSeqIdxGiven:(int)idx ForReward:(SequenceReward *)sequenceReward {
-    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceReward.ID];
++ (void)setLastSeqIdxGiven:(int)idx ForSequenceReward:(NSString *)sequenceRewardId {
+    NSString* key = [self keyRewardIdxSeqGivenWithRewardId:sequenceRewardId];
     NSString* val = [[NSNumber numberWithInt:idx] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
 }
 
-+ (void)setTimesGivenForReward:(Reward*)reward up:(BOOL)up andNotify:(BOOL)notify {
-    int total = [self getTimesGivenForReward:reward] + (up ? 1 : -1);
-    NSString* key = [self keyRewardTimesGiven:reward.ID];
++ (void)setTimesGivenForReward:(NSString*)rewardId up:(BOOL)up andNotify:(BOOL)notify {
+    int total = [self getTimesGivenForReward:rewardId] + (up ? 1 : -1);
+    NSString* key = [self keyRewardTimesGiven:rewardId];
     NSString* val = [[NSNumber numberWithInt:total] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
     
     if (up) {
-        key = [self keyRewardLastGiven:reward.ID];
+        key = [self keyRewardLastGiven:rewardId];
         val = [NSString stringWithFormat:@"%lld",(long long)([[NSDate date] timeIntervalSince1970] * 1000)];
         
         [KeyValueStorage setValue:val forKey:key];
@@ -71,15 +71,15 @@
     
     if (notify) {
         if (up) {
-            [SoomlaEventHandling postRewardGiven:reward];
+            [SoomlaEventHandling postRewardGiven:rewardId];
         } else {
-            [SoomlaEventHandling postRewardTaken:reward];
+            [SoomlaEventHandling postRewardTaken:rewardId];
         }
     }
 }
 
-+ (int)getTimesGivenForReward:(Reward*)reward {
-    NSString* key = [self keyRewardTimesGiven:reward.ID];
++ (int)getTimesGivenForReward:(NSString*)rewardId {
+    NSString* key = [self keyRewardTimesGiven:rewardId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     if (!val || [val length] == 0){
         return 0;
@@ -87,16 +87,16 @@
     return [val intValue];
 }
 
-+ (NSDate*)getLastGivenTimeForReward:(Reward*)reward {
-    long long timeMillis = [self getLastGivenTimeMillisForReward:reward];
++ (NSDate*)getLastGivenTimeForReward:(NSString*)rewardId {
+    long long timeMillis = [self getLastGivenTimeMillisForReward:rewardId];
     if (timeMillis == 0) {
         return NULL;
     }
     return [NSDate dateWithTimeIntervalSince1970:(timeMillis/1000)];
 }
 
-+ (long long)getLastGivenTimeMillisForReward:(Reward*)reward {
-    NSString* key = [self keyRewardTimesGiven:reward.ID];
++ (long long)getLastGivenTimeMillisForReward:(NSString*)rewardId {
+    NSString* key = [self keyRewardTimesGiven:rewardId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     if (!val || [val length] == 0){
         return 0;

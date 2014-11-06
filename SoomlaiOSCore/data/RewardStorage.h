@@ -19,22 +19,22 @@
 
 @interface RewardStorage : NSObject
 
-+ (void)setStatus:(BOOL)status forReward:(Reward *)reward;
++ (void)setStatus:(BOOL)status forReward:(NSString *)rewardId;
 
-+ (void)setStatus:(BOOL)status forReward:(Reward *)reward andNotify:(BOOL)notify;
++ (void)setStatus:(BOOL)status forReward:(NSString *)rewardId andNotify:(BOOL)notify;
 
-+ (BOOL)isRewardGiven:(Reward *)reward;
++ (BOOL)isRewardGiven:(NSString *)rewardId;
 
-+ (int)getLastSeqIdxGivenForReward:(SequenceReward *)sequenceReward;
++ (int)getLastSeqIdxGivenForSequenceReward:(NSString *)sequenceReward;
 
-+ (void)setLastSeqIdxGiven:(int)idx ForReward:(SequenceReward *)sequenceReward;
++ (void)setLastSeqIdxGiven:(int)idx ForSequenceReward:(NSString *)sequenceReward;
 
-+ (int)getTimesGivenForReward:(Reward*)reward;
++ (int)getTimesGivenForReward:(NSString*)rewardId;
 
-+ (void)setTimesGivenForReward:(Reward*)reward up:(BOOL)up andNotify:(BOOL)notify;
++ (void)setTimesGivenForReward:(NSString*)rewardId up:(BOOL)up andNotify:(BOOL)notify;
 
-+ (NSDate*)getLastGivenTimeForReward:(Reward*)reward;
++ (NSDate*)getLastGivenTimeForReward:(NSString*)rewardId;
 
-+ (long long)getLastGivenTimeMillisForReward:(Reward*)reward;
++ (long long)getLastGivenTimeMillisForReward:(NSString*)rewardId;
 
 @end
