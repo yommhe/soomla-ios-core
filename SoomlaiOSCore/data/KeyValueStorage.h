@@ -63,6 +63,22 @@
 + (NSArray*)getValuesForNonEncryptedQuery:(NSString*)query;
 
 /**
+ Retrieves ONE of the key-val pairs that answer the given `query`.
+ 
+ @param query What to fetch from the DB.
+ @return ONE value that answer the given `query` (the first one).
+ */
++ (NSString*)getOneForNonEncryptedQuery:(NSString*)query;
+
+/**
+ Retrieves the number of the key-val pairs that answer the given `query`.
+ 
+ @param query What to count in the DB.
+ @return the number of values that answer the given `query`.
+ */
++ (int)getCountForNonEncryptedQuery:(NSString*)query;
+
+/**
  Retrieves the value for the given `key`.
  
  @param key The key in the key-val pair.

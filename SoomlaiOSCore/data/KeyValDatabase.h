@@ -61,6 +61,22 @@
 - (NSArray*)getValsForQuery:(NSString*)query;
 
 /**
+ Retrieves from the DB ONE value of the key-val pairs that answer the given
+ `query`.
+ 
+ @param query The query that indicates what to fetch from the DB.
+ @return ONE of the key-val pairs fetched (the first one).
+ */
+- (NSString*)getOneForQuery:(NSString*)query;
+
+/**
+ Counts the number of key-val pairs that answer the given `query`.
+ 
+ @param query The query that indicates what to count in the DB.
+ @return the number of key-val pairs matching the query.
+ */- (int)getCountForQuery:(NSString*)query;
+
+/**
  Deletes from the DB the key-val pair with the given `key`.
  
  @param key The key whose key-val pair is to be deleted.

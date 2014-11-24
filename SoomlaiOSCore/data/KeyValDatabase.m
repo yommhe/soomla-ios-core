@@ -203,6 +203,73 @@
     }
 }
 
+- (NSString*)getOneForQuery:(NSString*)query {
+    @synchronized(self) {
+        NSString *result = NULL;
+        NSString* databasebPath = [[SoomlaUtils applicationDirectory] stringByAppendingPathComponent:DATABASE_NAME];
+        if (sqlite3_open([databasebPath UTF8String], &database) == SQLITE_OK)
+        {
+            sqlite3_stmt *statement = nil;
+            query = [query stringByReplacingOccurrencesOfString:@"*" withString:@"%"];
+            const char *sql = [[NSString stringWithFormat:@"SELECT %@ FROM %@ WHERE %@ LIKE '%@' LIMIT 1", KEYVAL_COLUMN_VAL, KEYVAL_TABLE_NAME, KEYVAL_COLUMN_KEY, query] UTF8String];
+            if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) != SQLITE_OK) {
+                LogError(TAG, ([NSString stringWithFormat:@"(getOneForQuery) Error while fetching %@ LIKE '%@' : %s", KEYVAL_COLUMN_KEY, query, sqlite3_errmsg(database)]));
+            } else {
+                while (sqlite3_step(statement) == SQLITE_ROW) {
+                    int colType = sqlite3_column_type(statement, 0);
+                    if (colType == SQLITE_TEXT) {
+                        const unsigned char *col = sqlite3_column_text(statement, 0);
+                        result = [NSString stringWithFormat:@"%s", col];
+                    } else {
+                        LogError(TAG, @"ERROR: UNKNOWN COLUMN DATATYPE");
+                    }
+                }
+                
+                // Finalize
+                sqlite3_finalize(statement);
+            }
+            
+            // Close database
+            sqlite3_close(database);
+        }
+        else{
+            LogError(TAG, @"Failed to open/create database");
+        }
+        return result;
+    }
+}
+
+- (int)getCountForQuery:(NSString*)query {
+    @synchronized(self) {
+        int count = 0;
+        NSString* databasebPath = [[SoomlaUtils applicationDirectory] stringByAppendingPathComponent:DATABASE_NAME];
+        if (sqlite3_open([databasebPath UTF8String], &database) == SQLITE_OK)
+        {
+            sqlite3_stmt *statement = nil;
+            query = [query stringByReplacingOccurrencesOfString:@"*" withString:@"%"];
+            const char *sql = [[NSString stringWithFormat:@"SELECT COUNT(%@) FROM %@ WHERE %@ LIKE '%@'", KEYVAL_COLUMN_VAL, KEYVAL_TABLE_NAME, KEYVAL_COLUMN_KEY, query] UTF8String];
+            if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) != SQLITE_OK) {
+                LogError(TAG, ([NSString stringWithFormat:@"(getOneForQuery) Error while fetching %@ LIKE '%@' : %s", KEYVAL_COLUMN_KEY, query, sqlite3_errmsg(database)]));
+            } else {
+                while (sqlite3_step(statement) == SQLITE_ROW) {
+                    count = sqlite3_column_int(statement, 0);
+                }
+                
+                // Finalize
+                sqlite3_finalize(statement);
+            }
+            
+            // Close database
+            sqlite3_close(database);
+        }
+        else{
+            LogError(TAG, @"Failed to open/create database");
+        }
+        return count;
+    }
+}
+
+
 - (NSString*)getValForKey:(NSString *)key{
     @synchronized(self) {
         NSString *result = nil;

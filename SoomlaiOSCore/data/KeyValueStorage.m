@@ -91,6 +91,22 @@
     return results;
 }
 
++ (NSString*)getOneForNonEncryptedQuery:(NSString*)query {
+    NSString* val = [[self kvDatabase] getOneForQuery:query];
+    if (val && [val length]>0){
+        NSString* valDec = [SoomlaEncryptor decryptToString:val];
+        if (valDec && [valDec length]>0){
+            return valDec;
+        }
+    }
+    
+    return NULL;
+}
+
++ (int)getCountForNonEncryptedQuery:(NSString*)query {
+    return [[self kvDatabase] getCountForQuery:query];
+}
+
 
 + (NSString*)getValueForNonEncryptedKey:(NSString*)key {
     NSString* val = [[self kvDatabase] getValForKey:key];
