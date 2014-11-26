@@ -16,17 +16,21 @@
 		<string>https://github.com/soomla/soomla-ios-core</string>
 		<key>681E0C898E40B933F2EBFD4173B4A17FC4E33A05</key>
 		<string>github.com:soomla/soomla-unity3d-core.git</string>
+		<key>8DBD0AE84D42F4C37822FB63129032B867B69ADB</key>
+		<string>github.com:gurdotan/ios-roadster.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SoomlaiOSCore.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>225BF6781622E39BA106F83BEB37B2A82DCED9A7</key>
-		<string>../../../../../..</string>
+		<string>../../..</string>
 		<key>3C7220E68B1EE37C18CF456227E6169CCABBA119</key>
 		<string>../..</string>
 		<key>681E0C898E40B933F2EBFD4173B4A17FC4E33A05</key>
-		<string>../../../..</string>
+		<string>../../..</string>
+		<key>8DBD0AE84D42F4C37822FB63129032B867B69ADB</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/soomla/soomla-ios-core</string>
@@ -42,7 +46,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>681E0C898E40B933F2EBFD4173B4A17FC4E33A05</string>
 			<key>IDESourceControlWCCName</key>
-			<string>..</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8DBD0AE84D42F4C37822FB63129032B867B69ADB</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -50,7 +62,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>225BF6781622E39BA106F83BEB37B2A82DCED9A7</string>
 			<key>IDESourceControlWCCName</key>
-			<string>..</string>
+			<string></string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
