@@ -269,6 +269,41 @@
     }
 }
 
+- (NSArray *)getAllKeys {
+    @synchronized(self) {
+        NSMutableArray *results = [NSMutableArray array];
+        NSString* databasebPath = [[SoomlaUtils applicationDirectory] stringByAppendingPathComponent:DATABASE_NAME];
+        if (sqlite3_open([databasebPath UTF8String], &database) == SQLITE_OK)
+        {
+            sqlite3_stmt *statement = nil;
+            const char *sql = [[NSString stringWithFormat:@"SELECT %@ FROM %@", KEYVAL_COLUMN_KEY, KEYVAL_TABLE_NAME] UTF8String];
+            if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) != SQLITE_OK) {
+                LogError(TAG, ([NSString stringWithFormat:@"(getAllKeys) Error while fetching all keys : %s", sqlite3_errmsg(database)]));
+            } else {
+                while (sqlite3_step(statement) == SQLITE_ROW) {
+                    int colType = sqlite3_column_type(statement, 0);
+                    if (colType == SQLITE_TEXT) {
+                        const unsigned char *col = sqlite3_column_text(statement, 0);
+                        [results addObject:[NSString stringWithFormat:@"%s", col]];
+                    } else {
+                        LogError(TAG, @"ERROR: UNKNOWN COLUMN DATATYPE");
+                    }
+                }
+                
+                // Finalize
+                sqlite3_finalize(statement);
+            }
+            
+            // Close database
+            sqlite3_close(database);
+        }
+        else{
+            LogError(TAG, @"Failed to open/create database");
+        }
+        return results;
+    }
+}
+
 
 - (NSString*)getValForKey:(NSString *)key{
     @synchronized(self) {

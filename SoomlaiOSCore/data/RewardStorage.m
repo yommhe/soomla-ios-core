@@ -57,16 +57,12 @@
 
 + (void)setTimesGivenForReward:(NSString*)rewardId up:(BOOL)up andNotify:(BOOL)notify {
     int total = [self getTimesGivenForReward:rewardId] + (up ? 1 : -1);
-    NSString* key = [self keyRewardTimesGiven:rewardId];
-    NSString* val = [[NSNumber numberWithInt:total] stringValue];
     
-    [KeyValueStorage setValue:val forKey:key];
+    [self resetTimesGivenForReward:rewardId andTimesGiven:total];
     
     if (up) {
-        key = [self keyRewardLastGiven:rewardId];
-        val = [NSString stringWithFormat:@"%lld",(long long)([[NSDate date] timeIntervalSince1970] * 1000)];
-        
-        [KeyValueStorage setValue:val forKey:key];
+        [self setLastGivenTimeMillisForReward:rewardId
+                       andLastGivenTimeMillis:(long long)([[NSDate date] timeIntervalSince1970] * 1000)];
     }
     
     if (notify) {
@@ -76,6 +72,20 @@
             [SoomlaEventHandling postRewardTaken:rewardId];
         }
     }
+}
+
++ (void)resetTimesGivenForReward:(NSString*)rewardId andTimesGiven:(int)timesGiven {
+    NSString* key = [self keyRewardTimesGiven:rewardId];
+    NSString* val = [[NSNumber numberWithInt:timesGiven] stringValue];
+    
+    [KeyValueStorage setValue:val forKey:key];
+}
+
++ (void)setLastGivenTimeMillisForReward:(NSString*)rewardId andLastGivenTimeMillis:(long long)lastGiven {
+    NSString *key = [self keyRewardLastGiven:rewardId];
+    NSString *val = [NSString stringWithFormat:@"%lld",lastGiven];
+    
+    [KeyValueStorage setValue:val forKey:key];
 }
 
 + (int)getTimesGivenForReward:(NSString*)rewardId {
@@ -104,8 +114,96 @@
     return [val longLongValue];
 }
 
++ (NSDictionary *)getRewardsState {
+    NSArray *rewardIds = [self getRewardIds];
+    NSMutableDictionary *rewardStateDict = [NSMutableDictionary dictionary];
+    
+    for (NSString *rewardId in rewardIds) {
+        NSMutableDictionary *rewardValuesDict = [NSMutableDictionary dictionary];
+        @try {
+            int timesGiven = [self getTimesGivenForReward:rewardId];
+            rewardValuesDict[@"timesGiven"] = [NSNumber numberWithInt:timesGiven];
+            
+            long long lastGiven = [self getLastGivenTimeMillisForReward:rewardId];
+            rewardValuesDict[@"lastGiven"] = [NSNumber numberWithLongLong:lastGiven];
+            
+            rewardStateDict[rewardId] = rewardValuesDict;
+        }
+        @catch (NSException *exception) {
+            LogDebug(TAG, ([NSString stringWithFormat:@"Unable to set reward %@ state. error: %@", rewardId, exception.description]));
+        }
+    }
+    
+    return rewardStateDict;
+}
+
++ (BOOL)resetRewardsState:(NSDictionary *)state {
+    if (!state) {
+        return NO;
+    }
+    
+    NSMutableArray *rewardIds = [self getRewardIds];
+    @try {
+        for (NSString *rewardId in state) {
+            NSDictionary *rewardValuesDict = state[rewardId];
+            
+            NSNumber *timesGiven = rewardValuesDict[@"timesGiven"];
+            if (timesGiven) {
+                [self resetTimesGivenForReward:rewardId andTimesGiven:[timesGiven intValue]];
+            }
+            
+            NSNumber *lastGiven = rewardValuesDict[@"lastGiven"];
+            if (lastGiven) {
+                [self setLastGivenTimeMillisForReward:rewardId andLastGivenTimeMillis:[lastGiven longLongValue]];
+            }
+            
+            [rewardIds removeObject:rewardId];
+        }
+    }
+    @catch (NSException *exception) {
+        LogError(TAG, ([NSString stringWithFormat:@"Unable to set state for rewards. error: %@", exception.description]));
+        return NO;
+    }
+    
+    // When resetting state we should remove all rewards' state which
+    // were not in the sync state (so the state is inline with the provided
+    // state)
+    for (NSString *rewardId in rewardIds) {
+        [KeyValueStorage deleteValueForKey:[self keyRewardTimesGiven:rewardId]];
+        [KeyValueStorage deleteValueForKey:[self keyRewardLastGiven:rewardId]];
+        [KeyValueStorage deleteValueForKey:[self keyRewardIdxSeqGivenWithRewardId:rewardId]];
+        
+    }
+    
+    return YES;
+}
 
 // Private
+
++ (NSMutableArray *)getRewardIds {
+    NSArray *kvKeys = [KeyValueStorage getAllKeysUnencrypted];
+    NSMutableArray *rewardIds = [NSMutableArray array];
+    
+    if (!kvKeys || (kvKeys.count == 0)) {
+        return rewardIds;
+    }
+    
+    NSString *rewardsPrefix = [NSString stringWithFormat: @"%@rewards.", DB_KEY_PREFIX];
+    for (NSString *key in kvKeys) {
+        NSString *rewardId = [key stringByReplacingOccurrencesOfString:rewardsPrefix withString:@""];
+        NSRange range = [rewardId rangeOfString:@"."];
+        if (range.length > 0) {
+            rewardId = [rewardId substringToIndex:range.location];
+        }
+        if ([rewardIds indexOfObject:rewardId] == NSNotFound) {
+            [rewardIds addObject:rewardId];
+        }
+    }
+    
+    return rewardIds;
+}
+
+static NSString* TAG = @"SOOMLA RewardStorage";
 
 + (NSString *)keyRewardsWithRewardId:(NSString *)rewardId AndPostfix:(NSString *)postfix {
     return [NSString stringWithFormat: @"%@rewards.%@.%@", DB_KEY_PREFIX, rewardId, postfix];

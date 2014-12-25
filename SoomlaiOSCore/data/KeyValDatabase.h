@@ -74,7 +74,15 @@
  
  @param query The query that indicates what to count in the DB.
  @return the number of key-val pairs matching the query.
- */- (int)getCountForQuery:(NSString*)query;
+ */
+- (int)getCountForQuery:(NSString*)query;
+
+/**
+ Gets all the keys in the DB
+ 
+ @return a list of `NSString`s containing all the keys in the DB.
+ */
+- (NSArray *)getAllKeys;
 
 /**
  Deletes from the DB the key-val pair with the given `key`.

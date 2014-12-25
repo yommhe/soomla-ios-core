@@ -87,6 +87,13 @@
 + (NSString*)getValueForNonEncryptedKey:(NSString*)key;
 
 /**
+ Gets all keys in the storage with no encryption
+ 
+ @return a List of unencrypted keys
+ */
++ (NSArray *)getAllKeysUnencrypted;
+
+/**
  Sets the given value to the given `key`.
  
  @param val The `val` of the key-val pair.

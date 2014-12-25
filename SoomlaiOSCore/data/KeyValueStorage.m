@@ -117,6 +117,17 @@
     return NULL;
 }
 
++ (NSArray *)getAllKeysUnencrypted {
+    NSArray *encryptedKeys = [[self kvDatabase] getAllKeys];
+    NSMutableArray *resultKeys = [NSMutableArray array];
+    
+    for (NSString *encryptedKey in encryptedKeys) {
+        [resultKeys addObject:[SoomlaEncryptor decryptToString:encryptedKey]];
+    }
+    
+    return resultKeys;
+}
+
 + (void)setValue:(NSString*)val forNonEncryptedKey:(NSString*)key {
     [[self kvDatabase] setVal:[SoomlaEncryptor encryptString:val] forKey:key];
 }

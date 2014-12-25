@@ -33,8 +33,16 @@
 
 + (void)setTimesGivenForReward:(NSString*)rewardId up:(BOOL)up andNotify:(BOOL)notify;
 
++ (void)resetTimesGivenForReward:(NSString*)rewardId andTimesGiven:(int)timesGiven;
+
 + (NSDate*)getLastGivenTimeForReward:(NSString*)rewardId;
 
 + (long long)getLastGivenTimeMillisForReward:(NSString*)rewardId;
+
++ (void)setLastGivenTimeMillisForReward:(NSString*)rewardId andLastGivenTimeMillis:(long long)lastGiven;
+
++ (NSDictionary *)getRewardsState;
+
++ (BOOL)resetRewardsState:(NSDictionary *)state;
 
 @end
