@@ -122,7 +122,15 @@
     NSMutableArray *resultKeys = [NSMutableArray array];
     
     for (NSString *encryptedKey in encryptedKeys) {
-        [resultKeys addObject:[SoomlaEncryptor decryptToString:encryptedKey]];
+        @try {
+            NSString *unencryptedKey = [SoomlaEncryptor decryptToString:encryptedKey];
+            if (unencryptedKey) {
+                [resultKeys addObject:unencryptedKey];
+            }
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Exception while decrypting all keys: %@", exception.description);
+        }
     }
     
     return resultKeys;

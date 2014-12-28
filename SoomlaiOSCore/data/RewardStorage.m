@@ -190,13 +190,16 @@
     
     NSString *rewardsPrefix = [NSString stringWithFormat: @"%@rewards.", DB_KEY_PREFIX];
     for (NSString *key in kvKeys) {
-        NSString *rewardId = [key stringByReplacingOccurrencesOfString:rewardsPrefix withString:@""];
-        NSRange range = [rewardId rangeOfString:@"."];
-        if (range.length > 0) {
-            rewardId = [rewardId substringToIndex:range.location];
-        }
-        if ([rewardIds indexOfObject:rewardId] == NSNotFound) {
-            [rewardIds addObject:rewardId];
+        NSRange findRange = [key rangeOfString:rewardsPrefix];
+        if (findRange.length > 0) {
+            NSString *rewardId = [key stringByReplacingOccurrencesOfString:rewardsPrefix withString:@""];
+            NSRange dotRange = [rewardId rangeOfString:@"."];
+            if (dotRange.length > 0) {
+                rewardId = [rewardId substringToIndex:dotRange.location];
+            }
+            if ([rewardIds indexOfObject:rewardId] == NSNotFound) {
+                [rewardIds addObject:rewardId];
+            }
         }
     }
     
