@@ -64,5 +64,7 @@
 
 + (NSString *)getClassName:(id)target;
 
++ (BOOL)isEmpty:(NSString *)target;
+
 @end
 

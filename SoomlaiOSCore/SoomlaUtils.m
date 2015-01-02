@@ -161,4 +161,8 @@ static NSString* TAG = @"SOOMLA SoomlaUtils";
     return NSStringFromClass([target class]);
 }
 
++ (BOOL)isEmpty:(NSString *)target {
+    return (!target || target.length > 0);
+}
+
 @end
