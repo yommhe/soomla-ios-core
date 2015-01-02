@@ -162,7 +162,7 @@ static NSString* TAG = @"SOOMLA SoomlaUtils";
 }
 
 + (BOOL)isEmpty:(NSString *)target {
-    return (!target || target.length > 0);
+    return (!target || target.length == 0);
 }
 
 @end
