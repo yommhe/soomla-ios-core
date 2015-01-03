@@ -91,7 +91,7 @@
  
  @return a List of unencrypted keys
  */
-+ (NSArray *)getAllKeysUnencrypted;
++ (NSArray *)getEncryptedKeys;
 
 /**
  Sets the given value to the given `key`.
