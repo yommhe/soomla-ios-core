@@ -24,7 +24,7 @@ SOOMLA modules internally use these features, though we encourage you to use the
 
 ####Pre baked jar:
 
-[soomla-ios-core 1.0.0](http://library.soom.la/fetch/ios-core/1.0.0?cf=github)
+[soomla-ios-core 1.0.2](http://library.soom.la/fetch/ios-core/1.0.2?cf=github)
 
 
 Our way of saying "Thanks !"

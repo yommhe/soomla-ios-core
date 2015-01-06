@@ -1,3 +1,10 @@
+### v1.0.2 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.1...v1.0.2)
+
+* New Features
+  * Added saving and reloading of reward state
+  * Added some utility functions
+
+
 ### v1.0.1 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.0...v1.0.1)
 
 * Fixes
