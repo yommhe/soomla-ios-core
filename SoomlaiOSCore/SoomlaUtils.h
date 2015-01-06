@@ -18,6 +18,7 @@
 
 #define LogDebug(x,y) [SoomlaUtils LogDebug:x withMessage:y];
 #define LogError(x,y) [SoomlaUtils LogError:x withMessage:y];
+#define IsStringEmpty(x) [SoomlaUtils isEmpty:x]
 
 /**
  This class handles printing of error and debug messages.

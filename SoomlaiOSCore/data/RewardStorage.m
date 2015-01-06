@@ -181,7 +181,7 @@
 // Private
 
 + (NSMutableArray *)getRewardIds {
-    NSArray *kvKeys = [KeyValueStorage getAllKeysUnencrypted];
+    NSArray *kvKeys = [KeyValueStorage getEncryptedKeys];
     NSMutableArray *rewardIds = [NSMutableArray array];
     
     if (!kvKeys || (kvKeys.count == 0)) {

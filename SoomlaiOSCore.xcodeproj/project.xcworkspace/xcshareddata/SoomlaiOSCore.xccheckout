@@ -44,14 +44,6 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>681E0C898E40B933F2EBFD4173B4A17FC4E33A05</string>
-			<key>IDESourceControlWCCName</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>8DBD0AE84D42F4C37822FB63129032B867B69ADB</string>
 			<key>IDESourceControlWCCName</key>
 			<string></string>
@@ -61,6 +53,14 @@
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>225BF6781622E39BA106F83BEB37B2A82DCED9A7</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>681E0C898E40B933F2EBFD4173B4A17FC4E33A05</string>
 			<key>IDESourceControlWCCName</key>
 			<string></string>
 		</dict>

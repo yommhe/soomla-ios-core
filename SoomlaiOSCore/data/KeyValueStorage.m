@@ -19,6 +19,7 @@
 #import "SoomlaEncryptor.h"
 #import "KeyValDatabase.h"
 #import "SoomlaConfig.h"
+#import "SoomlaUtils.h"
 
 @implementation KeyValueStorage
 
@@ -117,7 +118,7 @@
     return NULL;
 }
 
-+ (NSArray *)getAllKeysUnencrypted {
++ (NSArray *)getEncryptedKeys {
     NSArray *encryptedKeys = [[self kvDatabase] getAllKeys];
     NSMutableArray *resultKeys = [NSMutableArray array];
     
@@ -129,7 +130,7 @@
             }
         }
         @catch (NSException *exception) {
-            NSLog(@"Exception while decrypting all keys: %@", exception.description);
+            LogDebug(TAG, ([NSString stringWithFormat:@"Exception while decrypting all keys: %@", exception.description]));
         }
     }
     
@@ -147,5 +148,7 @@
 + (void)purge {
     [[self kvDatabase] purgeDatabase];
 }
+
+static NSString* TAG = @"SOOMLA KeyValueStorage";
 
 @end
