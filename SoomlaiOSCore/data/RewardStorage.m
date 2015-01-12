@@ -106,7 +106,7 @@
 }
 
 + (long long)getLastGivenTimeMillisForReward:(NSString*)rewardId {
-    NSString* key = [self keyRewardTimesGiven:rewardId];
+    NSString* key = [self keyRewardLastGiven:rewardId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     if (!val || [val length] == 0){
         return 0;
