@@ -1,3 +1,8 @@
+### v1.0.3 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.2...v1.0.3)
+
+* Fixes
+  * Fixing getting last given time for reward from storage
+
 ### v1.0.2 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.1...v1.0.2)
 
 * New Features
