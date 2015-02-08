@@ -1,3 +1,8 @@
+### v1.0.4 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.3...v1.0.4)
+
+* Fixes
+  * Fixing sqlite statement leak in setVal
+
 ### v1.0.3 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.2...v1.0.3)
 
 * Fixes
