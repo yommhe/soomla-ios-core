@@ -371,6 +371,10 @@
                     int rowsaffected = sqlite3_changes(database);
                     
                     if (rowsaffected == 0){
+                        // Finalize before reuse
+                        LogDebug(TAG, @"Finalizing previous statement before reusing it");
+                        sqlite3_finalize(statement);
+                        
                         LogDebug(TAG, @"Can't update item b/c it doesn't exist. Trying to add a new one.");
                         NSString* addStmt = [NSString stringWithFormat:@"INSERT INTO %@ (%@, %@) VALUES('%@', '%@')",
                                              KEYVAL_TABLE_NAME, KEYVAL_COLUMN_KEY, KEYVAL_COLUMN_VAL, key, val];
