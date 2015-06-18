@@ -23,12 +23,12 @@
 
 #import <Foundation/Foundation.h>
 
-void *NewBase64Decode(
+void *NewBase64Decode_soomla(
 	const char *inputBuffer,
 	size_t length,
 	size_t *outputLength);
 
-char *NewBase64Encode(
+char *NewBase64Encode_soomla(
 	const void *inputBuffer,
 	size_t length,
 	bool separateLines,
@@ -36,10 +36,10 @@ char *NewBase64Encode(
 
 @interface NSData (Base64)
 
-+ (NSData *)dataFromBase64String:(NSString *)aString;
-- (NSString *)base64EncodedString;
++ (NSData *)dataFromBase64String_soomla:(NSString *)aString;
+- (NSString *)base64EncodedString_soomla;
 
 // added by Hiroshi Hashiguchi
-- (NSString *)base64EncodedStringWithSeparateLines:(BOOL)separateLines;
+- (NSString *)base64EncodedStringWithSeparateLines_soomla:(BOOL)separateLines;
 
 @end

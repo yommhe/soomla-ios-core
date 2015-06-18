@@ -129,12 +129,26 @@
     NSData* data = [self encryptData:[string dataUsingEncoding:NSUTF8StringEncoding]
                                  key:[keyString dataUsingEncoding:NSUTF8StringEncoding]
                                   iv:nil];
-    return [data base64EncodedStringWithSeparateLines:separateLines];
+    NSString *base64String;
+    
+    if (![NSData instancesRespondToSelector:@selector(base64EncodedStringWithOptions:options:)]) {
+        base64String = [data base64EncodedStringWithSeparateLines_soomla:separateLines];
+    } else {
+        base64String = [data base64EncodedStringWithOptions:0];
+    }
+    return base64String;
 }
 
 + (NSString*)decryptBase64String:(NSString*)encryptedBase64String keyString:(NSString*)keyString
 {
-    NSData* encryptedData = [NSData dataFromBase64String:encryptedBase64String];
+    NSData* encryptedData;
+    
+    if (![NSData instancesRespondToSelector:@selector(initWithBase64EncodedString:options:)]) {
+        encryptedData = [NSData dataFromBase64String_soomla:encryptedBase64String];
+    } else {
+        encryptedData = [[NSData alloc] initWithBase64EncodedString:encryptedBase64String options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    }
+    
     NSData* data = [self decryptData:encryptedData
                                  key:[keyString dataUsingEncoding:NSUTF8StringEncoding]
                                   iv:nil];
