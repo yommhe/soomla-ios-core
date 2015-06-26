@@ -1,3 +1,8 @@
+### v1.0.5 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.4...v1.0.5)
+
+* Fixes
+  * Base64 encoding and decoding - fixed a conflict with function naming that happened when working with other plugins
+
 ### v1.0.4 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.3...v1.0.4)
 
 * Fixes
