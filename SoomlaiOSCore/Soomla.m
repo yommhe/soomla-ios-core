@@ -16,12 +16,18 @@
 
 #import "Soomla.h"
 
+#define SOOMLA_CORE_VERSION @"1.0.6"
+
 @implementation Soomla
 
 NSString* SOOMLA_SECRET = @"SOOMLA_SEC";
 
 + (void)initializeWithSecret:(NSString *)secret {
     SOOMLA_SECRET = secret;
+}
+
++ (NSString*)getVersion {
+    return SOOMLA_CORE_VERSION;
 }
 
 @end
