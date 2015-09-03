@@ -1,3 +1,8 @@
+### v1.0.7 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.6...v1.0.7)
+
+* Fixes
+  * VendorId changing in iOS
+
 ### v1.0.6 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.5...v1.0.6)
 
 * Changes
