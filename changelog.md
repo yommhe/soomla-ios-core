@@ -1,3 +1,10 @@
+### v1.1.0 [view commit logs](https://github.com/soomla/soomla-ios-core/compare/v1.0.7...v1.1.0)
+
+* New Features
+  * KeyValueStorage - changed to allow multiple instances with different storage
+  * KeyValueStorage - added method of getting query values with limit
+  * Added generating a unique id per installation if idfv can't be fetched
+
 ### v1.0.7 [view commit logs](https://github.com/soomla/ios-store/compare/v1.0.6...v1.0.7)
 
 * Fixes
