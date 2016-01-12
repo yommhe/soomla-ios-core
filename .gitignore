@@ -13,3 +13,9 @@ SoomlaiOSCore.xcodeproj/xcuserdata
 SoomlaiOSCore.xcodeproj/project.xcworkspace/xcuserdata
 
 build.log
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
