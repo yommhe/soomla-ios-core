@@ -1,3 +1,8 @@
+### v1.1.1 [view commit logs](https://github.com/soomla/soomla-ios-core/compare/v1.1.0...v1.1.1)
+
+* Changes
+  * Removed binaries from repo
+
 ### v1.1.0 [view commit logs](https://github.com/soomla/soomla-ios-core/compare/v1.0.7...v1.1.0)
 
 * New Features

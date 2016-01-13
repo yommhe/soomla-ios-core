@@ -16,7 +16,7 @@
 
 #import "Soomla.h"
 
-#define SOOMLA_CORE_VERSION @"1.1.0"
+#define SOOMLA_CORE_VERSION @"1.1.1"
 
 @implementation Soomla
 
