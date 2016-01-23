@@ -1,5 +1,7 @@
 language: objective-c
 sudo: false
 install: true
+before_script:
+    - ./download_deps
 xcode_project: SoomlaiOSCore.xcodeproj
 xcode_scheme: SoomlaiOSCore
