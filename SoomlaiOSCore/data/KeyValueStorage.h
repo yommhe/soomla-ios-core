@@ -16,8 +16,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define SOOMLA_DATABASE_NAME @"store.kv.db"
-
 /**
  This class provides basic storage operations for a simple key-value store.
  */

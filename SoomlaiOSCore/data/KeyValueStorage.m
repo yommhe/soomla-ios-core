@@ -15,6 +15,7 @@
  */
 
 #import "KeyValueStorage.h"
+#import "KeyValDatabase.h"
 #import "SoomlaConfig.h"
 #import "SoomlaUtils.h"
 #import "Soomla.h"

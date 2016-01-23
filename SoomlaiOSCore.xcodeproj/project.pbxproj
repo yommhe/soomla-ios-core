@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A14D13711C54047E0018BD3F /* KeyValDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = A14D136F1C54047E0018BD3F /* KeyValDatabase.h */; };
+		A14D13721C54047E0018BD3F /* KeyValDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A14D13701C54047E0018BD3F /* KeyValDatabase.m */; };
 		C0233429194AEE40005DE53A /* SoomlaConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233425194AEE40005DE53A /* SoomlaConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023342A194AEE40005DE53A /* SoomlaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233426194AEE40005DE53A /* SoomlaConfig.m */; };
 		C023342B194AEE40005DE53A /* SoomlaUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233427194AEE40005DE53A /* SoomlaUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A14D136F1C54047E0018BD3F /* KeyValDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValDatabase.h; sourceTree = "<group>"; };
+		A14D13701C54047E0018BD3F /* KeyValDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValDatabase.m; sourceTree = "<group>"; };
 		C0233425194AEE40005DE53A /* SoomlaConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaConfig.h; sourceTree = "<group>"; };
 		C0233426194AEE40005DE53A /* SoomlaConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaConfig.m; sourceTree = "<group>"; };
 		C0233427194AEE40005DE53A /* SoomlaUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaUtils.h; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				C023346F194B058C005DE53A /* JSONConsts.m */,
 				C023346A194B055E005DE53A /* RewardStorage.h */,
 				C023346B194B055E005DE53A /* RewardStorage.m */,
+				A14D136F1C54047E0018BD3F /* KeyValDatabase.h */,
+				A14D13701C54047E0018BD3F /* KeyValDatabase.m */,
 				C0233432194AEE5F005DE53A /* KeyValueStorage.h */,
 				C0233433194AEE5F005DE53A /* KeyValueStorage.m */,
 			);
@@ -198,6 +204,7 @@
 				C0233483194B05C0005DE53A /* SequenceReward.h in Headers */,
 				EF9E24C81950528E007A3082 /* Soomla.h in Headers */,
 				C0233448194AEE5F005DE53A /* KeyValueStorage.h in Headers */,
+				A14D13711C54047E0018BD3F /* KeyValDatabase.h in Headers */,
 				C0233489194B06C1005DE53A /* SoomlaEventHandling.h in Headers */,
 				EFC127D3194E046100CDA66B /* DictionaryFactory.h in Headers */,
 				C09D1CFB1992676500BC370A /* Schedule.h in Headers */,
@@ -287,6 +294,7 @@
 				EFC127D4194E046100CDA66B /* DictionaryFactory.m in Sources */,
 				C09D1CFC1992676500BC370A /* Schedule.m in Sources */,
 				C0233449194AEE5F005DE53A /* KeyValueStorage.m in Sources */,
+				A14D13721C54047E0018BD3F /* KeyValDatabase.m in Sources */,
 				C0233482194B05C0005DE53A /* Reward.m in Sources */,
 				C023348A194B06C1005DE53A /* SoomlaEventHandling.m in Sources */,
 				C023346D194B055E005DE53A /* RewardStorage.m in Sources */,
