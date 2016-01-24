@@ -21,6 +21,5 @@ then
     cd libs
 	mkdir -p keeva
 	unzip $IOS_CORE_CACHE/$KEEVA_NAME -d keeva
-    rm $IOS_CORE_CACHE/$KEEVA_NAME
     cd - > /dev/null
 fi
