@@ -17,6 +17,7 @@
 #import "KeyValueStorage.h"
 #import "KeyValDatabase.h"
 #import "SoomlaConfig.h"
+#import "KeevaConfig.h"
 #import "SoomlaUtils.h"
 #import "Soomla.h"
 #import "Keeva.h"
@@ -98,6 +99,7 @@
                 [NSException raise:@"Invalid secret value" format:@"You must initialize KeyValueStorage with a secret. storageName: %@", storageName];
             }
             self.keeva = [[Keeva alloc] initWithName:storageName andSecret:secret];
+            KEEVA_DEBUG_LOG = DEBUG_LOG;
         }
         return self;
     }
