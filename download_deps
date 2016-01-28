@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd $DIR
+
+IOS_CORE_CACHE=~/.soomla/cache/ios-core
+mkdir -p $IOS_CORE_CACHE
+
+mkdir -p libs
+
+KEEVA_NAME=keeva-1.0.0.zip
+if [ ! -d libs/keeva ];
+then
+    if [ ! -f $IOS_CORE_CACHE/$KEEVA_NAME ];
+    then
+        echo "Downloading Keeva..."
+        curl -Lo $IOS_CORE_CACHE/$KEEVA_NAME.tmp http://library.soom.la/fetch/keeva-ios-lib/1.0.0?cf=dl_deps
+        mv $IOS_CORE_CACHE/$KEEVA_NAME.tmp $IOS_CORE_CACHE/$KEEVA_NAME
+    fi
+    cd libs
+	mkdir -p keeva
+	unzip $IOS_CORE_CACHE/$KEEVA_NAME -d keeva
+    cd - > /dev/null
+fi

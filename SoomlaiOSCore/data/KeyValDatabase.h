@@ -15,7 +15,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <sqlite3.h>
 
 #define SOOMLA_DATABASE_NAME @"store.kv.db"
 
@@ -23,96 +22,7 @@
  The `KeyValDatabase` provides basic key-value store above SQLite.
  */
 @interface KeyValDatabase : NSObject{
-    @private
-    sqlite3 *database;
 }
-
-- (id)init;
-
-- (id)initWithName:(NSString*)dbName;
-
-/**
- Sets the given `value` to the given `key`.
- 
- @param val The value of the key-val pair.
- @param key The key of the key-val pair.
- */
-- (void)setVal:(NSString *)val forKey:(NSString *)key;
-
-/**
- Retrieves the value for the given `key`.
- 
- @param key The key of the key-val pair.
- @return The value for the key-val pair.
- */
-- (NSString*)getValForKey:(NSString *)key;
-
-/**
- Retrieves from DB the key-val pairs that answer the given `query`.
- 
- @param query What to fetch from the DB.
- @return key-val The key-val pairs that answer the given query.
- */
-- (NSDictionary*)getKeysValsForQuery:(NSString*)query;
-
-/**
- Retrieves from the DB the values of the key-val pairs that answer the given
- `query`.
- 
- @param query The query that indicates what to fetch from the DB.
- @return The values of the key-val pairs fetched.
- */
-- (NSArray*)getValsForQuery:(NSString*)query;
-
-/**
- Retrieves from the DB the values of the key-val pairs that answer the given
- `query`.
- 
- @param query The query that indicates what to fetch from the DB.
- @param limit the max amount of fetched entries.
- @return The values of the key-val pairs fetched.
- */
-- (NSArray*)getValsForQuery:(NSString*)query withLimit:(int)limit;
-
-/**
- Retrieves from the DB ONE value of the key-val pairs that answer the given
- `query`.
- 
- @param query The query that indicates what to fetch from the DB.
- @return ONE of the key-val pairs fetched (the first one).
- */
-- (NSString*)getOneForQuery:(NSString*)query;
-
-/**
- Counts the number of key-val pairs that answer the given `query`.
- 
- @param query The query that indicates what to count in the DB.
- @return the number of key-val pairs matching the query.
- */
-- (int)getCountForQuery:(NSString*)query;
-
-/**
- Gets all the keys in the DB
- 
- @return a list of `NSString`s containing all the keys in the DB.
- */
-- (NSArray *)getAllKeys;
-
-/**
- Deletes from the DB the key-val pair with the given `key`.
- 
- @param key The key whose key-val pair is to be deleted.
- */
-- (void)deleteKeyValWithKey:(NSString *)key;
-
-/**
- Purges the entire DB
- 
- NOTE: Use with caution, since this will delete all the user's local information
- This message is used mainly for while in testing.
- */
-- (void)purgeDatabase;
-
 
 /** SOOMLA keys **/
 

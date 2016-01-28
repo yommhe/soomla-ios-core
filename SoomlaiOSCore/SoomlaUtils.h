@@ -41,22 +41,6 @@
  */
 + (void)LogError:(NSString*)tag withMessage:(NSString*)msg;
 
-/**
- * Retrieves the device Id.
- *
- * @return The id of the device being used.
- */
-+ (NSString*)deviceId;
-
-/**
- * Retrieves the Id for Vendors.
- *
- * @return The id for vendors being used.
- */
-+ (NSString*)vendorId;
-
-+ (NSString*)keyFromSecret:(NSString*)secret;
-
 + (NSMutableDictionary*)jsonStringToDict:(NSString*)str;
 
 + (NSMutableArray*)jsonStringToArray:(NSString*)str;

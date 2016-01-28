@@ -22,9 +22,6 @@
 
 static NSString* TAG = @"SOOMLA SoomlaUtils";
 
-static NSString *const SOOMLA_DEVICE_KEY = @"soomlaDeviceId";
-static NSString *const SOOMLA_GENERATED_KEY = @"soomlaGeneratedId";
-
 + (void)LogDebug:(NSString*)tag withMessage:(NSString*)msg {
     if (DEBUG_LOG) {
         NSLog(@"[Debug] %@: %@", tag, msg);
@@ -33,48 +30,6 @@ static NSString *const SOOMLA_GENERATED_KEY = @"soomlaGeneratedId";
 
 + (void)LogError:(NSString*)tag withMessage:(NSString*)msg {
     NSLog(@"[*** ERROR ***] %@: %@", tag, msg);
-}
-
-+ (NSString*)deviceIdPreferVendor {
-    NSString *soomlaDeviceId = [[NSUserDefaults standardUserDefaults] stringForKey:SOOMLA_DEVICE_KEY];
-    if (!soomlaDeviceId) {
-        soomlaDeviceId = [SoomlaUtils vendorId];
-        [[NSUserDefaults standardUserDefaults] setObject:soomlaDeviceId forKey:SOOMLA_DEVICE_KEY];
-    }
-    return soomlaDeviceId;
-}
-
-/* We check for UDID_SOOMLA to support devices with older versions of ios-store */
-+ (NSString*)deviceId {
-    NSString* udid = [[NSUserDefaults standardUserDefaults] stringForKey:@"UDID_SOOMLA"];
-    if (!udid || [udid length] == 0) {
-	return [self deviceIdPreferVendor];
-    }
-    return udid;
-}
-
-+ (NSString*)vendorId {
-    NSString *vendorId;
-    if ([[UIDevice currentDevice] respondsToSelector:@selector(identifierForVendor)]) {
-        vendorId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    } else {
-        vendorId = [SoomlaUtils generateSoomlaId];
-    }
-    return vendorId;
-}
-
-+ (NSString*)generateSoomlaId {
-    NSString *soomlaGeneratedId = [[NSUserDefaults standardUserDefaults] stringForKey:SOOMLA_GENERATED_KEY];
-    if (!soomlaGeneratedId) {
-        soomlaGeneratedId = [NSString stringWithFormat:@"SOOMLA_ID_i%05d%05d", arc4random_uniform(100000), arc4random_uniform(100000)];
-        [[NSUserDefaults standardUserDefaults] setObject:soomlaGeneratedId forKey:SOOMLA_GENERATED_KEY];
-    }
-    return soomlaGeneratedId;
-}
-
-
-+ (NSString*)keyFromSecret:(NSString*)secret {
-    return [secret stringByAppendingString:[SoomlaUtils deviceId]];
 }
 
 + (NSMutableDictionary*)jsonStringToDict:(NSString*)str {

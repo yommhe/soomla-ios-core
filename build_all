@@ -3,9 +3,12 @@ set -e
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 cd $DIR
 
+./download_deps
+
 rm -rf build
 mkdir build
 
 xcodebuild -configuration Release -sdk iphoneos -project SoomlaiOSCore.xcodeproj -target SoomlaiOSCore clean build CREATING_UNIVERSAL_DIR=$PWD/build
+cp -r libs/keeva/ build/
 
 cd - > /dev/null
