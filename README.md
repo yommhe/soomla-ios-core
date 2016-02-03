@@ -24,7 +24,7 @@ SOOMLA modules internally use these features, though we encourage you to use the
 
 #### Pre baked libraries
 
-- [soomla-ios-core 1.1.1](http://library.soom.la/fetch/ios-core/1.1.1?cf=github)
+- [soomla-ios-core 1.2.0](http://library.soom.la/fetch/ios-core/1.2.0?cf=github)
 
 #### From sources:
  - Clone this repository recursively: `git clone --recursive https://github.com/soomla/soomla-ios-core.git`

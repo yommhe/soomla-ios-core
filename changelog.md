@@ -1,3 +1,8 @@
+### v1.2.0 [view commit logs](https://github.com/soomla/soomla-ios-core/compare/v1.1.1...v1.2.0)
+
+* Changes
+  * Make KeyValueStorage implementation use Keeva
+
 ### v1.1.1 [view commit logs](https://github.com/soomla/soomla-ios-core/compare/v1.1.0...v1.1.1)
 
 * Changes
