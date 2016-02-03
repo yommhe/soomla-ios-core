@@ -7,20 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A14D13711C54047E0018BD3F /* KeyValDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = A14D136F1C54047E0018BD3F /* KeyValDatabase.h */; };
+		A14D13721C54047E0018BD3F /* KeyValDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A14D13701C54047E0018BD3F /* KeyValDatabase.m */; };
 		C0233429194AEE40005DE53A /* SoomlaConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233425194AEE40005DE53A /* SoomlaConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023342A194AEE40005DE53A /* SoomlaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233426194AEE40005DE53A /* SoomlaConfig.m */; };
 		C023342B194AEE40005DE53A /* SoomlaUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233427194AEE40005DE53A /* SoomlaUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023342C194AEE40005DE53A /* SoomlaUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233428194AEE40005DE53A /* SoomlaUtils.m */; };
-		C0233446194AEE5F005DE53A /* KeyValDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233430194AEE5F005DE53A /* KeyValDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0233447194AEE5F005DE53A /* KeyValDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233431194AEE5F005DE53A /* KeyValDatabase.m */; };
 		C0233448194AEE5F005DE53A /* KeyValueStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C0233432194AEE5F005DE53A /* KeyValueStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0233449194AEE5F005DE53A /* KeyValueStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0233433194AEE5F005DE53A /* KeyValueStorage.m */; };
-		C0233450194AEE5F005DE53A /* SoomlaEncryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C023343A194AEE5F005DE53A /* SoomlaEncryptor.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C0233451194AEE5F005DE53A /* SoomlaEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C023343B194AEE5F005DE53A /* SoomlaEncryptor.m */; };
-		C023345F194AEEB8005DE53A /* FBEncryptorAES.h in Headers */ = {isa = PBXBuildFile; fileRef = C023345B194AEEB8005DE53A /* FBEncryptorAES.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C0233460194AEEB8005DE53A /* FBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = C023345C194AEEB8005DE53A /* FBEncryptorAES.m */; };
-		C0233461194AEEB8005DE53A /* NSData-Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = C023345D194AEEB8005DE53A /* NSData-Base64.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C0233462194AEEB8005DE53A /* NSData-Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = C023345E194AEEB8005DE53A /* NSData-Base64.m */; };
 		C0233464194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = C0233463194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch */; settings = {ATTRIBUTES = (Private, ); }; };
 		C023346C194B055E005DE53A /* RewardStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C023346A194B055E005DE53A /* RewardStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023346D194B055E005DE53A /* RewardStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C023346B194B055E005DE53A /* RewardStorage.m */; };
@@ -60,20 +54,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A14D136F1C54047E0018BD3F /* KeyValDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValDatabase.h; sourceTree = "<group>"; };
+		A14D13701C54047E0018BD3F /* KeyValDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValDatabase.m; sourceTree = "<group>"; };
 		C0233425194AEE40005DE53A /* SoomlaConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaConfig.h; sourceTree = "<group>"; };
 		C0233426194AEE40005DE53A /* SoomlaConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaConfig.m; sourceTree = "<group>"; };
 		C0233427194AEE40005DE53A /* SoomlaUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaUtils.h; sourceTree = "<group>"; };
 		C0233428194AEE40005DE53A /* SoomlaUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaUtils.m; sourceTree = "<group>"; };
-		C0233430194AEE5F005DE53A /* KeyValDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValDatabase.h; sourceTree = "<group>"; };
-		C0233431194AEE5F005DE53A /* KeyValDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValDatabase.m; sourceTree = "<group>"; };
 		C0233432194AEE5F005DE53A /* KeyValueStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValueStorage.h; sourceTree = "<group>"; };
 		C0233433194AEE5F005DE53A /* KeyValueStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValueStorage.m; sourceTree = "<group>"; };
-		C023343A194AEE5F005DE53A /* SoomlaEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaEncryptor.h; sourceTree = "<group>"; };
-		C023343B194AEE5F005DE53A /* SoomlaEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaEncryptor.m; sourceTree = "<group>"; };
-		C023345B194AEEB8005DE53A /* FBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBEncryptorAES.h; sourceTree = "<group>"; };
-		C023345C194AEEB8005DE53A /* FBEncryptorAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBEncryptorAES.m; sourceTree = "<group>"; };
-		C023345D194AEEB8005DE53A /* NSData-Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-Base64.h"; sourceTree = "<group>"; };
-		C023345E194AEEB8005DE53A /* NSData-Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-Base64.m"; sourceTree = "<group>"; };
 		C0233463194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SoomlaiOSCore-Prefix.pch"; sourceTree = "<group>"; };
 		C023346A194B055E005DE53A /* RewardStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardStorage.h; sourceTree = "<group>"; };
 		C023346B194B055E005DE53A /* RewardStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardStorage.m; sourceTree = "<group>"; };
@@ -121,25 +109,12 @@
 				C023346F194B058C005DE53A /* JSONConsts.m */,
 				C023346A194B055E005DE53A /* RewardStorage.h */,
 				C023346B194B055E005DE53A /* RewardStorage.m */,
-				C0233430194AEE5F005DE53A /* KeyValDatabase.h */,
-				C0233431194AEE5F005DE53A /* KeyValDatabase.m */,
+				A14D136F1C54047E0018BD3F /* KeyValDatabase.h */,
+				A14D13701C54047E0018BD3F /* KeyValDatabase.m */,
 				C0233432194AEE5F005DE53A /* KeyValueStorage.h */,
 				C0233433194AEE5F005DE53A /* KeyValueStorage.m */,
-				C023343A194AEE5F005DE53A /* SoomlaEncryptor.h */,
-				C023343B194AEE5F005DE53A /* SoomlaEncryptor.m */,
 			);
 			path = data;
-			sourceTree = "<group>";
-		};
-		C023345A194AEEB8005DE53A /* FBEncryptor */ = {
-			isa = PBXGroup;
-			children = (
-				C023345B194AEEB8005DE53A /* FBEncryptorAES.h */,
-				C023345C194AEEB8005DE53A /* FBEncryptorAES.m */,
-				C023345D194AEEB8005DE53A /* NSData-Base64.h */,
-				C023345E194AEEB8005DE53A /* NSData-Base64.m */,
-			);
-			path = FBEncryptor;
 			sourceTree = "<group>";
 		};
 		C0233472194B05C0005DE53A /* rewards */ = {
@@ -191,7 +166,6 @@
 				C0233488194B06C1005DE53A /* SoomlaEventHandling.m */,
 				C0233472194B05C0005DE53A /* rewards */,
 				C0233463194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch */,
-				C023345A194AEEB8005DE53A /* FBEncryptor */,
 				C023342D194AEE5F005DE53A /* data */,
 				C0233425194AEE40005DE53A /* SoomlaConfig.h */,
 				C0233426194AEE40005DE53A /* SoomlaConfig.m */,
@@ -229,16 +203,13 @@
 				C0233429194AEE40005DE53A /* SoomlaConfig.h in Headers */,
 				C0233483194B05C0005DE53A /* SequenceReward.h in Headers */,
 				EF9E24C81950528E007A3082 /* Soomla.h in Headers */,
-				C0233461194AEEB8005DE53A /* NSData-Base64.h in Headers */,
 				C0233448194AEE5F005DE53A /* KeyValueStorage.h in Headers */,
+				A14D13711C54047E0018BD3F /* KeyValDatabase.h in Headers */,
 				C0233489194B06C1005DE53A /* SoomlaEventHandling.h in Headers */,
 				EFC127D3194E046100CDA66B /* DictionaryFactory.h in Headers */,
 				C09D1CFB1992676500BC370A /* Schedule.h in Headers */,
-				C0233446194AEE5F005DE53A /* KeyValDatabase.h in Headers */,
 				C023347D194B05C0005DE53A /* BadgeReward.h in Headers */,
 				C0233470194B058C005DE53A /* JSONConsts.h in Headers */,
-				C023345F194AEEB8005DE53A /* FBEncryptorAES.h in Headers */,
-				C0233450194AEE5F005DE53A /* SoomlaEncryptor.h in Headers */,
 				C0233464194AEF7D005DE53A /* SoomlaiOSCore-Prefix.pch in Headers */,
 				C0FD6017197C18E6003001F5 /* SoomlaEntity.h in Headers */,
 				C023346C194B055E005DE53A /* RewardStorage.h in Headers */,
@@ -316,10 +287,6 @@
 			files = (
 				C0FD6018197C18E6003001F5 /* SoomlaEntity.m in Sources */,
 				C023347E194B05C0005DE53A /* BadgeReward.m in Sources */,
-				C0233447194AEE5F005DE53A /* KeyValDatabase.m in Sources */,
-				C0233451194AEE5F005DE53A /* SoomlaEncryptor.m in Sources */,
-				C0233460194AEEB8005DE53A /* FBEncryptorAES.m in Sources */,
-				C0233462194AEEB8005DE53A /* NSData-Base64.m in Sources */,
 				C0233484194B05C0005DE53A /* SequenceReward.m in Sources */,
 				C0233471194B058C005DE53A /* JSONConsts.m in Sources */,
 				C0233480194B05C0005DE53A /* RandomReward.m in Sources */,
@@ -327,6 +294,7 @@
 				EFC127D4194E046100CDA66B /* DictionaryFactory.m in Sources */,
 				C09D1CFC1992676500BC370A /* Schedule.m in Sources */,
 				C0233449194AEE5F005DE53A /* KeyValueStorage.m in Sources */,
+				A14D13721C54047E0018BD3F /* KeyValDatabase.m in Sources */,
 				C0233482194B05C0005DE53A /* Reward.m in Sources */,
 				C023348A194B06C1005DE53A /* SoomlaEventHandling.m in Sources */,
 				C023346D194B055E005DE53A /* RewardStorage.m in Sources */,
@@ -392,8 +360,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SoomlaiOSCore/SoomlaiOSCore-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
-				HEADER_SEARCH_PATHS = "";
-				LIBRARY_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/libs/keeva/headers/**";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/libs/keeva";
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = headers/private;
 				PRODUCT_NAME = SoomlaiOSCore;
@@ -410,8 +378,8 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SoomlaiOSCore/SoomlaiOSCore-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
-				LIBRARY_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/libs/keeva/headers/**";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/libs/keeva";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = headers/private;
